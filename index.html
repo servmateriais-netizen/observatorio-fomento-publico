@@ -237,15 +237,15 @@ document.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',(
 document.getElementById('mobile-nav').addEventListener('change',e=>jump(e.target.value));
 function renderCards(){
  const q=document.getElementById('search-input').value.trim().toLocaleLowerCase('pt-BR'),type=document.getElementById('filter-type').value,status=document.getElementById('filter-status').value,archive=document.getElementById('show-archive').checked;
- const list=calls.filter(c=>!hiddenCalls.includes(c.id)&&(type==='all'||c.type===type)&&(status==='saved'?window.isSharedFavorite?.(c.source):status==='closed'?c.status==='closed'||expired(c):status==='open'?c.status==='open'&&!expired(c):status==='restricted'?c.status==='restricted'&&!expired(c):true)&&[c.name,c.summary,c.category,c.public,c.applications.join(' ')].join(' ').toLocaleLowerCase('pt-BR').includes(q));
+ const list=calls.filter(c=>!hiddenCalls.includes(c.id)&&(type==='all'||c.type===type)&&(status==='saved'?window.isSharedFavorite?.('catalog:'+c.id):status==='closed'?c.status==='closed'||expired(c):status==='open'?c.status==='open'&&!expired(c):status==='restricted'?c.status==='restricted'&&!expired(c):true)&&[c.name,c.summary,c.category,c.public,c.applications.join(' ')].join(' ').toLocaleLowerCase('pt-BR').includes(q));
  document.getElementById('filter-count').textContent=list.length+' resultado'+(list.length!==1?'s':'');
- document.getElementById('cards').innerHTML=list.map(c=>`<article class="callcard"><div class="cardhead"><div class="pills">${statush(c)}${c.featured?'<span class="pill">Destaque</span>':''}</div><button class="star ${window.isSharedFavorite?.(c.source)?'faved':''}" data-fav="${c.id}" aria-label="${window.isSharedFavorite?.(c.source)?'Remover dos':'Adicionar aos'} favoritos" title="${window.isSharedFavorite?.(c.source)?'Remover favorito':'Favoritar para acompanhar'}">${window.isSharedFavorite?.(c.source)?'★':'☆'}</button></div><div class="cardcat">${safe(c.category)}</div><h3>${safe(c.name)}</h3><p>${safe(c.summary)}</p><div class="row spread" style="align-items:end"><div><small class="muted">Recursos totais do edital</small><div class="money">${safe(c.budgetShort)}</div></div><div style="text-align:right"><small class="muted">Por proposta</small><div style="font-size:11px;font-weight:750;max-width:200px">${safe(c.per)}</div></div></div><div class="cardmetas"><span>Prazo: <strong>${dateBR(c.date)}</strong>${c.time?' · '+c.time:''}</span><span>${c.type==='ict'?'ICT / instituição':'Empresa / startup'}</span></div><div class="cardbuttons"><button class="linkbtn" data-detail="${c.id}">Explorar edital ↗</button><button class="subtle-button" data-hide="${c.id}">Ocultar</button><a href="${c.source}" target="_blank" rel="noopener noreferrer" style="font-size:11px">Fonte oficial</a></div></article>`).join('')||'<div class="empty">Nenhum edital neste filtro. Consulte o histórico ou restaure os ocultados.</div>';
+ document.getElementById('cards').innerHTML=list.map(c=>`<article class="callcard"><div class="cardhead"><div class="pills">${statush(c)}${c.featured?'<span class="pill">Destaque</span>':''}</div><button class="star ${window.isSharedFavorite?.('catalog:'+c.id)?'faved':''}" data-fav="${c.id}" aria-label="${window.isSharedFavorite?.('catalog:'+c.id)?'Remover dos':'Adicionar aos'} favoritos" title="${window.isSharedFavorite?.('catalog:'+c.id)?'Remover favorito':'Favoritar para acompanhar'}">${window.isSharedFavorite?.('catalog:'+c.id)?'★':'☆'}</button></div><div class="cardcat">${safe(c.category)}</div><h3>${safe(c.name)}</h3><p>${safe(c.summary)}</p><div class="row spread" style="align-items:end"><div><small class="muted">Recursos totais do edital</small><div class="money">${safe(c.budgetShort)}</div></div><div style="text-align:right"><small class="muted">Por proposta</small><div style="font-size:11px;font-weight:750;max-width:200px">${safe(c.per)}</div></div></div><div class="cardmetas"><span>Prazo: <strong>${dateBR(c.date)}</strong>${c.time?' · '+c.time:''}</span><span>${c.type==='ict'?'ICT / instituição':'Empresa / startup'}</span></div><div class="cardbuttons"><button class="linkbtn" data-detail="${c.id}">Explorar edital ↗</button><button class="subtle-button" data-hide="${c.id}">Ocultar</button><a href="${c.source}" target="_blank" rel="noopener noreferrer" style="font-size:11px">Fonte oficial</a></div></article>`).join('')||'<div class="empty">Nenhum edital neste filtro. Consulte o histórico ou restaure os ocultados.</div>';
  document.querySelectorAll('#cards [data-detail]').forEach(b=>b.addEventListener('click',()=>openDetail(b.dataset.detail)));
  document.querySelectorAll('#cards [data-fav]').forEach(b=>b.addEventListener('click',async()=>{
  const item=calls.find(c=>c.id===b.dataset.fav);
  if(!item || !window.alternarFavorito)return;
  b.disabled=true;
- await window.alternarFavorito(item.name,item.source);
+ await window.alternarFavorito(item.name,item.source,'catalog:'+item.id);
  b.disabled=false;
 }));
  document.querySelectorAll('#cards [data-hide]').forEach(b=>b.addEventListener('click',()=>{hiddenCalls=[...new Set([...hiddenCalls,b.dataset.hide])];storeWrite('observatorio_hidden_calls',hiddenCalls);renderCards()}));
@@ -290,19 +290,28 @@ function show(){
  const q=document.getElementById('mon-search').value.trim().toLocaleLowerCase('pt-BR');
  const score=document.getElementById('mon-score').value;
  const theme=document.getElementById('mon-theme').value;
- const hidden=JSON.parse(localStorage.getItem('observatorio_mon_hidden')||'[]');const star=(window.getSharedFavorites?.()||[]).map(x=>x.url);const displayOld=document.getElementById('mon-include-all').checked;const arr=(monitor.items||[]).filter(x=>{
+ const hidden=JSON.parse(localStorage.getItem('observatorio_mon_hidden')||'[]');const star=(window.getSharedFavorites?.()||[]).map(x=>x.chave);const selectedUrl=url=>(window.getCatalogAlternatives?.(url)||[{key:'source:'+url}]).some(opt=>star.includes(opt.key));const displayOld=document.getElementById('mon-include-all').checked;const arr=(monitor.items||[]).filter(x=>{
   const r=x.relevance||{},themes=r.themes||[];
-  return !hidden.includes(x.url) && (displayOld||star.includes(x.url)||r.score>=35) && (score==='all'||(score==='high'&&r.score>=65)||(score==='medium'&&r.score>=35)) && (theme==='all'||themes.includes(theme)) && [x.title,x.org,...themes].join(' ').toLocaleLowerCase('pt-BR').includes(q);
+  return !hidden.includes(x.url) && (displayOld||selectedUrl(x.url)||r.score>=35) && (score==='all'||(score==='high'&&r.score>=65)||(score==='medium'&&r.score>=35)) && (theme==='all'||themes.includes(theme)) && [x.title,x.org,...themes].join(' ').toLocaleLowerCase('pt-BR').includes(q);
  });
  document.getElementById('mon-items').innerHTML=arr.length?arr.map(x=>{
   const r=x.relevance||{};const cls=r.score>=65?'':r.score>=35?'mid':'low';
-  return `<article class="mon-card"><div class="mon-pills"><span class="mon-tag mon-rank ${cls}">${esc(r.level)} aderência · ${esc(r.score)}/100</span><span class="mon-tag">${esc(x.org)}</span></div><div class="row spread"><h3>${esc(x.title)}</h3><button class="star ${star.includes(x.url)?'faved':''}" data-mon-fav="${arr.indexOf(x)}" aria-label="Favoritar publicação">${star.includes(x.url)?'★':'☆'}</button></div><p><strong>Temas:</strong> ${esc((r.themes||[]).join(', ')||'Análise preliminar')}</p><p><strong>Possível proponente:</strong> ${esc(r.route||'A confirmar')}</p><div class="mon-notice">O monitoramento <strong>não confirma inscrição aberta</strong>, prazo ou elegibilidade. Consulte o edital e suas retificações.</div><div class="retif-actions"><button class="subtle-button" data-mon-hide="${arr.indexOf(x)}">Ocultar</button>${star.includes(x.url)?`<button class="interest-btn" data-mon-watch="${arr.indexOf(x)}">✉ Alertar retificação</button>`:''}<a class="mon-link" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">Abrir fonte oficial ↗</a></div></article>`;
+  const alternatives=window.getCatalogAlternatives?.(x.url)||[];
+  const choices=alternatives.length?alternatives:[{key:'source:'+x.url,title:x.title,type:null}];
+  const stars=choices.map(opt=>{
+    const marked=star.includes(opt.key);
+    const subtitle=choices.length>1?(opt.type==='ict'?' ICTs':' Empresas'):'';
+    return `<button class="star ${marked?'faved':''}" data-mon-fav="${arr.indexOf(x)}" data-mon-key="${esc(opt.key)}" aria-label="${marked?'Desfavoritar':'Favoritar'}${subtitle}">${marked?'★':'☆'}${subtitle}</button>`;
+  }).join('');
+  return `<article class="mon-card"><div class="mon-pills"><span class="mon-tag mon-rank ${cls}">${esc(r.level)} aderência · ${esc(r.score)}/100</span><span class="mon-tag">${esc(x.org)}</span></div><div class="row spread"><h3>${esc(x.title)}</h3><div class="row" style="flex-wrap:wrap;justify-content:end">${stars}</div></div><p><strong>Temas:</strong> ${esc((r.themes||[]).join(', ')||'Análise preliminar')}</p><p><strong>Possível proponente:</strong> ${esc(r.route||'A confirmar')}</p><div class="mon-notice">O monitoramento <strong>não confirma inscrição aberta</strong>, prazo ou elegibilidade. Consulte o edital e suas retificações.</div><div class="retif-actions"><button class="subtle-button" data-mon-hide="${arr.indexOf(x)}">Ocultar</button><a class="mon-link" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">Abrir fonte oficial ↗</a></div></article>`;
  }).join(''):'<div class="mon-empty">Nenhuma publicação atende aos filtros ou a coleta ainda não foi executada.</div>';
  document.querySelectorAll('#mon-items [data-mon-fav]').forEach(b=>b.addEventListener('click',async()=>{
  const item=arr[Number(b.dataset.monFav)];
  if(!item||!window.alternarFavorito)return;
  b.disabled=true;
- await window.alternarFavorito(item.title,item.url);
+ const key=b.dataset.monKey;
+ const option=(window.getCatalogAlternatives?.(item.url)||[]).find(x=>x.key===key);
+ await window.alternarFavorito(option?.title||item.title,item.url,key);
  b.disabled=false;
 }));
  document.querySelectorAll('#mon-items [data-mon-hide]').forEach(b=>b.addEventListener('click',()=>{const u=arr[Number(b.dataset.monHide)].url;localStorage.setItem('observatorio_mon_hidden',JSON.stringify([...new Set([...hidden,u])]));show()}));
@@ -328,13 +337,13 @@ window.requestEditionWatch=(title,url)=>{
  if(typeof window.registrarAcompanhamento==='function')window.registrarAcompanhamento(title,url);
 };
 function draw(){
- const combined=(window.getSharedFavorites?.()||[]).map(x=>({name:x.titulo,source:x.url}));
+ const combined=(window.getSharedFavorites?.()||[]).map(x=>({key:x.chave,name:x.titulo,source:x.url}));
  $('watched-favorites').innerHTML=combined.length?combined.map((x,i)=>`<div class="retif-item"><h3>★ ${esc(x.name)}</h3><p>${esc(x.source)}</p><div class="retif-actions"><button type="button" class="interest-btn" data-retif-remove="${i}">☆ Desfavoritar</button><a href="${esc(x.source)}" target="_blank" rel="noopener noreferrer">Edital oficial ↗</a></div></div>`).join(''):'<div class="mon-empty">Ainda não existem editais nos favoritos coletivos. Marque ☆ no catálogo ou radar.</div>';
  $('watched-favorites').querySelectorAll('[data-retif-remove]').forEach(b=>b.addEventListener('click',async()=>{
  const item=combined[Number(b.dataset.retifRemove)];
  if(!item)return;
  b.disabled=true;
- await window.removerAcompanhamento?.(item.source);
+ await window.removerAcompanhamento?.(item.key);
  b.disabled=false;
  }));
 
