@@ -61,16 +61,20 @@
   }
 
   // Uma única fonte de verdade: a identidade é a oportunidade, não a URL.
+  const identity = window.ObservatorioIdentity;
+  if (!identity) throw new Error('Módulo de identificação das oportunidades ausente');
   const sharedKeys = () => new Set(sharing.map(row => row.chave));
-  const catalogFor = url => (window.observatorioCalls || []).filter(c => c.source === url);
-  const optionsFor = url => catalogFor(url).map(c => ({key:'catalog:'+c.id,title:c.name,type:c.type}));
-  const keyFor = url => {
-    const options = optionsFor(url);
-    return options.length === 1 ? options[0].key
-      : options.length === 0 ? 'source:'+url : null;
+  const catalogFor = (url,title) => identity.matchCatalog(window.observatorioCalls||[],url,title);
+  const optionsFor = (url,title) => catalogFor(url,title)
+    .map(c => ({key:identity.catalogKey(c.id),title:c.name,type:c.type})).filter(x=>x.key);
+  const keyFor = (url,title) => {
+    const options = optionsFor(url,title);
+    return options.length===1 ? options[0].key
+      : options.length===0 ? identity.keyForSource(url,title) : null;
   };
   window.getSharedFavorites = () => sharing.slice();
   window.getCatalogAlternatives = optionsFor;
+  window.getOpportunityKey = keyFor;
   window.isSharedFavorite = key => sharedKeys().has(key);
   function publishChange() {
     window.dispatchEvent(new Event('observatorio-shared-changed'));
@@ -104,13 +108,13 @@
       return false;
     }
   }
-  async function register(title, url, key = keyFor(url)) {
+  async function register(title, url, key = keyFor(url,title)) {
     if (!validURL(url)) {
       notify('Para acompanhar, o edital precisa ter um endereço Finep ou FAPEPI válido.', 'warn');
       return false;
     }
     if (!key) {
-      notify('O Coopera Mais Brasil possui modalidades distintas. Escolha ICTs ou Empresas no catálogo.', 'warn');
+      notify('Esta publicação reúne modalidades distintas. Escolha qual deseja acompanhar.', 'warn');
       return false;
     }
     try {
@@ -141,9 +145,9 @@
       return false;
     }
   }
-  async function toggle(title,url,key=keyFor(url)) {
+  async function toggle(title,url,key=keyFor(url,title)) {
     if (!key) {
-      notify('Escolha a modalidade ICTs ou Empresas no catálogo para acompanhar separadamente.', 'warn');
+      notify('Selecione a modalidade específica no catálogo para acompanhar separadamente.', 'warn');
       return false;
     }
     return sharedKeys().has(key) ? unregister(key) : register(title,url,key);
@@ -176,10 +180,10 @@
           <h3>${escapeHTML(item.title)}</h3>
           <p>${escapeHTML((item.relevance?.themes || []).slice(0, 3).join(' · ') || 'Acompanhamento preliminar')}</p>
           <div class="portal-radar-actions"><a href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">Ler fonte oficial ↗</a><div class="portal-radar-options">${(() => {
-            const alternatives=optionsFor(item.url);
+            const alternatives=optionsFor(item.url,item.title);
             return alternatives.length>1
               ? alternatives.map(option => `<button type="button" data-portal-fav="${index}" data-portal-key="${escapeHTML(option.key)}" aria-label="Favoritar modalidade ${option.type==='ict'?'ICTs':'Empresas'}">☆ ${option.type==='ict'?'ICTs':'Empresas'}</button>`).join('')
-              : `<button type="button" data-portal-fav="${index}" data-portal-key="${escapeHTML(keyFor(item.url))}" aria-label="Favoritar edital">☆ Favoritar</button>`;
+              : `<button type="button" data-portal-fav="${index}" data-portal-key="${escapeHTML(keyFor(item.url,item.title))}" aria-label="Favoritar edital">☆ Favoritar</button>`;
           })()}</div></div>
         </article>`;
       }).join('') : '<div class="portal-empty">Nenhum edital disponível na última coleta.</div>';
@@ -205,7 +209,7 @@
     const item = radar[Number(button.dataset.portalFav)];
     if (!item) return;
     button.disabled = true;
-    const option=optionsFor(item.url).find(x=>x.key===button.dataset.portalKey);
+    const option=optionsFor(item.url,item.title).find(x=>x.key===button.dataset.portalKey);
     await toggle(option?.title || item.title,item.url,button.dataset.portalKey);
     button.disabled = false;
   });
@@ -215,7 +219,7 @@
       if (!item) return;
       const key=button.dataset.portalKey;
       const selected=sharedKeys().has(key);
-      const option=optionsFor(item.url).find(x=>x.key===key);
+      const option=optionsFor(item.url,item.title).find(x=>x.key===key);
       const suffix=option ? (option.type==='ict'?'ICTs':'Empresas') : 'Favoritar';
       button.textContent=selected ? '★ '+(option ? suffix : 'Desfavoritar') : '☆ '+suffix;
       button.setAttribute('aria-label',(selected?'Desfavoritar ':'Favoritar ')+(option?('modalidade '+suffix):'edital'));
