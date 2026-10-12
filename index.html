@@ -141,7 +141,7 @@
   <div class="mon-grid">
     <div class="mon-metric"><small class="muted">Última coleta com sucesso</small><strong style="font-size:17px" id="mon-updated">Aguardando</strong><span class="muted" style="font-size:11px">Horário local de Fortaleza</span></div>
     <div class="mon-metric"><small class="muted">Páginas verificadas na última execução</small><strong id="mon-count">—</strong><span class="muted" style="font-size:11px">Se falhar, informa o erro</span></div>
-    <div class="mon-metric"><small class="muted">Alertas registrados</small><strong id="mon-events-count">—</strong><span class="muted" style="font-size:11px">Publicações e modificações</span></div>
+    <div class="mon-metric"><small class="muted">Avisos internos registrados</small><strong id="mon-events-count">—</strong><span class="muted" style="font-size:11px">Publicações e modificações</span></div>
   </div>
   <div class="surface panel">
     <h3>Oportunidades monitoradas por aderência temática</h3>
@@ -151,14 +151,14 @@
  <div id="mon-status" class="mon-status" role="status">Carregando dados de monitoramento...</div>
     <div id="mon-items" class="mon-cards"><div class="mon-empty">Os dados aparecerão após a primeira execução da rotina automatizada no servidor.</div></div>
   </div>
-  <div class="surface panel" style="margin-top:18px"><h3>Publicações e alterações detectadas</h3><p class="muted" style="font-size:12px">As datas registradas abaixo são as datas da detecção pelo sistema, não necessariamente da publicação oficial.</p><div id="mon-events" class="mon-empty">Sem alertas registrados.</div></div>
+  <div class="surface panel" style="margin-top:18px"><h3>Publicações e alterações detectadas</h3><p class="muted" style="font-size:12px">As datas registradas abaixo são as datas da detecção pelo sistema, não necessariamente da publicação oficial.</p><div id="mon-events" class="mon-empty">Nenhuma alteração registrada.</div></div>
   <div class="surface panel" style="margin-top:18px"><h3>Critérios de análise para nosso grupo</h3><div class="matrix"><table><thead><tr><th>Indicador</th><th>Verificação</th></tr></thead><tbody><tr><th>Aderência temática</th><td>Materiais cerâmicos/adsorventes, água e saneamento, fertilizantes, agro, resíduos e inovação</td></tr><tr><th>Possível proponente</th><td>UFPI/ICT e fundação de apoio ou empresa/startup, conforme objeto do edital</td></tr><tr><th>Condições críticas</th><td>CNPJ, faturamento, sede, contrapartida, parceiros, TRL, documentação e enquadramento oficial</td></tr><tr><th>Prazos e retificações</th><td>Confirmados somente após leitura da última versão do edital e anexos oficiais</td></tr><tr><th>Projetos de referência</th><td>HydroTech, Fertivance/FertTech, cerâmicas porosas e materiais funcionais</td></tr></tbody></table></div></div>
 </section>
 
 <section id="page-retifications" class="section">
  <div class="sectionhead"><div><div class="eyebrow mutedtitle">Acompanhamento coletivo</div><h2>Favoritos e notificações</h2><p>Os editais marcados com ★ são monitorados em conjunto. A central reúne a última coleta, o histórico de possíveis alterações e os avisos que podem ser consultados diretamente no site. <strong>Uma alteração detectada ainda precisa de confirmação na fonte oficial.</strong></p></div></div>
  <div class="notification-center surface panel" aria-label="Central de notificações do laboratório">
-   <div class="notification-head"><div><span class="portal-eyebrow">ACOMPANHAMENTO AUTOMÁTICO</span><h3>Situação dos alertas</h3><p id="notify-explanation">Consultando os registros disponíveis do monitoramento...</p></div><button id="notify-refresh" type="button" class="subtle-button">↻ Atualizar informações</button></div>
+   <div class="notification-head"><div><span class="portal-eyebrow">ACOMPANHAMENTO AUTOMÁTICO</span><h3>Situação das notificações</h3><p id="notify-explanation">Consultando os registros disponíveis do monitoramento...</p></div><button id="notify-refresh" type="button" class="subtle-button">↻ Atualizar informações</button></div>
    <div class="notification-metrics">
      <div class="notification-metric"><span>Editais acompanhados</span><strong id="notify-watched-count">—</strong><small>Favoritos compartilhados</small></div>
      <div class="notification-metric"><span>Última coleta publicada</span><strong id="notify-last-scan">—</strong><small>Horário de Brasília</small></div>
@@ -182,7 +182,7 @@
  </div>
  <div class="split">
    <div class="surface panel"><h3>★ Favoritos coletivos</h3><p class="muted" style="font-size:12px">Os favoritos são compartilhados: marcar ou desmarcar a estrela atualiza o catálogo, o radar e esta página. A remoção também atualiza a lista coletiva do laboratório.</p><div id="watched-favorites" class="retif-list"></div></div>
-   <div class="surface panel"><h3>Como funcionam os alertas?</h3><p class="muted" style="font-size:12px">1. Marque ☆ no edital para incluí-lo nos favoritos coletivos.<br>2. As coletas automáticas consultam as fontes oficiais e registram novidades.<br>3. Abra o sino na parte superior ou esta central para visualizar os avisos. Não há envio de e-mail.</p><div class="retif-note">As notificações aparecem <b>dentro do Observatório</b>, quando uma coleta detecta uma possível atualização. Marcar como lida fica salvo apenas neste navegador. O site não faz notificações push fora da página e não envia e-mails.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
+   <div class="surface panel"><h3>Como funcionam os avisos?</h3><p class="muted" style="font-size:12px">1. Marque ☆ no edital para incluí-lo nos favoritos coletivos.<br>2. As coletas automáticas consultam as fontes oficiais e registram novidades.<br>3. Abra o sino na parte superior ou esta central para visualizar os avisos. Não há envio de e-mail.</p><div class="retif-note">As notificações aparecem <b>dentro do Observatório</b>, quando uma coleta detecta uma possível atualização. Marcar como lida fica salvo apenas neste navegador. O site não faz notificações push fora da página e não envia e-mails.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
  </div>
  <div class="surface panel" style="margin-top:16px"><div class="row spread"><h3 style="margin-bottom:0">Histórico de possíveis retificações</h3><select id="retif-filter" aria-label="Filtrar retificações" style="border:1px solid var(--border);padding:9px;border-radius:9px"><option value="favorites">Somente favoritos</option><option value="all">Todas as alterações</option></select></div><p class="muted" style="font-size:12px;margin-top:10px">Datas em vermelho correspondem à detecção pelo robô, não necessariamente à publicação oficial. Verifique o edital vigente, o documento e seus anexos.</p><div id="retif-events" class="retif-list"></div></div>
 </section>
@@ -204,7 +204,7 @@
 <div class="footer"><div><div class="footlogo">OBSERVATÓRIO DE FOMENTO · 2026</div>Material de análise para discussão acadêmica • UFPI / Piauí</div><div>Finep · FAPEPI | Levantamento de 12/10/2026<br>Conteúdo informativo. Em divergências, prevalecem editais e anexos oficiais.</div></div>
 </main></div>
 
-<!-- Painel flutuante: mostra estado REAL da última coleta, publicação e alertas. -->
+<!-- Painel flutuante: mostra o estado público da última coleta e da central de notificações. -->
 <div class="connection-widget" id="connection-widget" aria-label="Situação do monitoramento automático">
   <div class="connection-card" id="connection-card" hidden>
     <div class="connection-head"><strong>● Central de atualização</strong><span id="connection-mode">GitHub</span></div>
@@ -215,7 +215,7 @@
       <div class="connection-line"><span>Avisos no portal</span><strong id="connection-email">Central de notificações</strong></div>
       <div class="connection-line"><span>Novidades registradas</span><strong id="connection-lastmail">—</strong></div>
       <p class="connection-hint" id="connection-hint">Os dados serão exibidos após a primeira coleta publicada.</p>
-      <div class="connection-actions"><button id="connection-refresh" type="button">↻ Atualizar dados</button><button id="connection-details" type="button">Ver alertas ↗</button></div>
+      <div class="connection-actions"><button id="connection-refresh" type="button">↻ Atualizar dados</button><button id="connection-details" type="button">Ver notificações ↗</button></div>
       <p class="connection-footer">Atualizar o painel não dispara nova coleta. As verificações públicas ocorrem no GitHub Actions e publicam avisos no site.</p>
     </div>
   </div>
@@ -363,7 +363,7 @@ window.renderRetifMonitor=()=>monitor;fetch('./data/monitor.json',{cache:'no-sto
 </script>
 
 <script>
-/* Favoritos locais ≠ alertas por e-mail. Registro no GitHub exige confirmação do proprietário. */
+/* Favoritos públicos do Supabase e histórico de alterações no próprio portal. */
 (function(){
 'use strict';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -402,7 +402,7 @@ window.addEventListener('observatorio-favorites-changed',draw);window.addEventLi
 </script>
 
 <script>
-/* Diagnóstico da coleta pública, sem referência à antiga configuração SMTP. */
+/* Diagnóstico da coleta pública e das notificações internas. */
 (() => {
   'use strict';
   const $=id=>document.getElementById(id);
