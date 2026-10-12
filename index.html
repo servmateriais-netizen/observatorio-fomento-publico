@@ -133,10 +133,20 @@
 </section>
 
 <section id="page-retifications" class="section">
- <div class="sectionhead"><div><div class="eyebrow mutedtitle">Acompanhamento direcionado</div><h2>Retificações e editais favoritos</h2><p>Marque ★ nos editais de interesse. As mudanças de páginas ou anexos serão exibidas aqui quando a rotina identificar eventos relacionados; <strong>qualquer possível retificação exige leitura do documento oficial.</strong></p></div></div>
+ <div class="sectionhead"><div><div class="eyebrow mutedtitle">Acompanhamento coletivo</div><h2>Favoritos e notificações</h2><p>Os editais marcados com ★ são monitorados em conjunto. A central abaixo informa a última coleta disponível, possíveis alterações e o estado verificado dos e-mails. <strong>Uma alteração detectada ainda precisa de confirmação na fonte oficial.</strong></p></div></div>
+ <div class="notification-center surface panel" aria-label="Central de notificações do laboratório">
+   <div class="notification-head"><div><span class="portal-eyebrow">ACOMPANHAMENTO AUTOMÁTICO</span><h3>Situação dos alertas</h3><p id="notify-explanation">Consultando os registros disponíveis do monitoramento...</p></div><button id="notify-refresh" type="button" class="subtle-button">↻ Atualizar informações</button></div>
+   <div class="notification-metrics">
+     <div class="notification-metric"><span>Editais acompanhados</span><strong id="notify-watched-count">—</strong><small>Favoritos compartilhados</small></div>
+     <div class="notification-metric"><span>Última coleta publicada</span><strong id="notify-last-scan">—</strong><small>Horário de Brasília</small></div>
+     <div class="notification-metric"><span>Alterações registradas</span><strong id="notify-event-count">—</strong><small>Histórico das fontes</small></div>
+     <div class="notification-metric"><span>Alertas por e-mail</span><strong id="notify-mail-status">Consultando...</strong><small id="notify-last-mail">Último envio: sem confirmação</small></div>
+   </div>
+   <div class="notification-detail" id="notify-detail" role="status" aria-live="polite">O acompanhamento ocorre nas execuções programadas; atualizar esta tela não inicia uma nova coleta.</div>
+ </div>
  <div class="split">
    <div class="surface panel"><h3>★ Favoritos coletivos</h3><p class="muted" style="font-size:12px">Os favoritos são compartilhados: marcar ou desmarcar a estrela atualiza o catálogo, o radar e esta página. A remoção também atualiza a lista coletiva do laboratório.</p><div id="watched-favorites" class="retif-list"></div></div>
-   <div class="surface panel"><h3>Como receber um aviso?</h3><p class="muted" style="font-size:12px">1. Marque ☆ no edital desejado.<br>2. O Supabase registra o acompanhamento coletivo automaticamente.<br>3. O sistema verifica mudanças nas próximas coletas e envia alertas relevantes aos e-mails configurados.</p><div class="retif-note">O alerta é de <b>possível alteração</b> (retificação, prazo, anexo), não uma confirmação jurídica. O site é público e qualquer visitante pode incluir editais no acompanhamento. Os e-mails são enviados apenas aos endereços do laboratório.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
+   <div class="surface panel"><h3>Como funcionam os alertas?</h3><p class="muted" style="font-size:12px">1. Marque ☆ para incluir o edital nos favoritos coletivos.<br>2. A próxima execução do monitoramento verifica possíveis alterações na fonte oficial.<br>3. Quando houver alteração relevante, o serviço de e-mail tenta notificar os endereços do laboratório.</p><div class="retif-note">Favoritar <b>não envia e-mail imediatamente</b> e não comprova que ocorreu uma retificação. O aviso depende de uma mudança detectada, da rotina automática e do serviço de envio. O site não cadastra e-mails dos visitantes: a lista do laboratório fica protegida.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
  </div>
  <div class="surface panel" style="margin-top:16px"><div class="row spread"><h3 style="margin-bottom:0">Histórico de possíveis retificações</h3><select id="retif-filter" aria-label="Filtrar retificações" style="border:1px solid var(--border);padding:9px;border-radius:9px"><option value="favorites">Somente favoritos</option><option value="all">Todas as alterações</option></select></div><p class="muted" style="font-size:12px;margin-top:10px">Datas em vermelho correspondem à detecção pelo robô, não necessariamente à publicação oficial. Verifique o edital vigente, o documento e seus anexos.</p><div id="retif-events" class="retif-list"></div></div>
 </section>
@@ -169,8 +179,8 @@
       <div class="connection-line"><span>Alertas por e-mail</span><strong id="connection-email">Não configurado</strong></div>
       <div class="connection-line"><span>Último e-mail</span><strong id="connection-lastmail">—</strong></div>
       <p class="connection-hint" id="connection-hint">Os dados serão exibidos após a primeira coleta publicada.</p>
-      <div class="connection-actions"><button id="connection-refresh" type="button">↻ Verificar agora</button><button id="connection-details" type="button">Ver radar completo ↗</button></div>
-      <p class="connection-footer">Verificação da interface a cada 2 min. Não equivale a nova coleta: esta roda nos horários do GitHub Actions.</p>
+      <div class="connection-actions"><button id="connection-refresh" type="button">↻ Atualizar dados</button><button id="connection-details" type="button">Ver alertas ↗</button></div>
+      <p class="connection-footer">Atualizar o painel não dispara nova coleta. As verificações automáticas ocorrem na rotina privada do GitHub.</p>
     </div>
   </div>
   <button class="connection-toggle" id="connection-toggle" type="button" aria-expanded="false" aria-controls="connection-card">
@@ -358,7 +368,7 @@ const owner=isPages?location.hostname.split('.')[0]:null;
 const repo=isPages?(location.pathname.split('/').filter(Boolean)[0]||owner+'.github.io'):null;
 let monitor=null, mail=null, workflow=null, error=false;
 $('connection-toggle').addEventListener('click',()=>{const open=widget.classList.toggle('open');$('connection-card').hidden=!open;$('connection-toggle').setAttribute('aria-expanded',String(open))});
-$('connection-details').addEventListener('click',()=>{if(typeof jump==='function')jump('monitor');else location.hash='monitor';widget.classList.remove('open');$('connection-card').hidden=true;$('connection-toggle').setAttribute('aria-expanded','false')});
+$('connection-details').addEventListener('click',()=>{if(typeof jump==='function')jump('retifications');else location.hash='retifications';widget.classList.remove('open');$('connection-card').hidden=true;$('connection-toggle').setAttribute('aria-expanded','false')});
 $('connection-refresh').addEventListener('click',()=>update());
 async function getJSON(url){const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
 function render(){
@@ -366,6 +376,9 @@ function render(){
  const now=Date.now(), run=monitor?.generated_at?new Date(monitor.generated_at).getTime():0;
  const age=run?Math.round((now-run)/3600000):Infinity;
  const active=monitor && monitor.status!=='aguardando' && age<=30;
+ const mailAt=mail?.checked_at?new Date(mail.checked_at).getTime():0;
+ const mailFresh=Number.isFinite(mailAt)&&mailAt>0&&(now-mailAt)<36*3600000;
+ const mailVerified=mailFresh&&['enviado','sem_novidades','falha','desativado'].includes(mail?.status);
  let title='Aguardando ativação', state='warn';
  if(!isPages){title='Prévia local · não publicado';state='warn'}
  else if(!monitor||monitor.status==='aguardando'){title='Sem coleta confirmada';state='warn'}
@@ -375,7 +388,8 @@ function render(){
  else if(monitor.status==='falha'){title='Falha na última coleta';state='bad'}
  else if(monitor.status==='parcial'){title='Coleta parcial · revisar fontes';state='warn'}
  else if(mail?.status==='falha'){title='Coleta OK · falha no e-mail';state='warn'}
- else if(active){title='Monitoramento atualizado';state='ok'}
+ else if(active&&!mailVerified){title='Coleta publicada · e-mail não confirmado';state='warn'}
+ else if(active){title='Coleta pública atualizada';state='ok'}
  if(error && !monitor){title=isPages?'Não foi possível verificar o monitoramento':'Prévia local · abra em servidor';state='warn'}
  dot.classList.add(state);$('connection-title').textContent=title;
  $('connection-subtitle').textContent=isPages?'GitHub Pages · Finep / FAPEPI':'Arquivo local · sem sincronização remota';
@@ -384,15 +398,16 @@ function render(){
  $('connection-gh').textContent=gh;
  $('connection-last').textContent=fmt(monitor?.generated_at);
  $('connection-count').textContent=monitor?.checked_pages != null?monitor.checked_pages+' página(s)':'Sem dados';
- const mailMap={'aguardando_sincronizacao':'Aguardando atualização','enviado':'Enviado com sucesso','sem_novidades':'Ativo, sem novos alertas','desativado':'Ainda não configurado','falha':'Falha no envio'};
- $('connection-email').textContent=mailMap[mail?.status]||'Ainda não configurado';
+ const mailMap={'aguardando_sincronizacao':'Envio ainda não verificado','enviado':'Envio SMTP registrado','sem_novidades':'Ativo, sem novidades','desativado':'Envio não configurado','falha':'Falha no envio SMTP'};
+ $('connection-email').textContent=mailVerified ? mailMap[mail.status] : 'Sem confirmação recente';
  $('connection-lastmail').textContent=fmt(mail?.last_sent_at);
  let reason= !isPages?'Este arquivo está em prévia. Publique no GitHub Pages e ative o workflow para obter dados reais.':
  !monitor||monitor.status==='aguardando'?'Nenhuma coleta confirmada. Confira o GitHub Actions e a configuração do repositório.':
  age>30?'O registro tem mais de 30 horas. Verifique o agendamento do GitHub Actions.':
  monitor.status==='falha'?'Nenhuma fonte pôde ser consultada nesta execução. Consulte os logs no GitHub.':
  monitor.status==='parcial'?`${monitor.failures?.length||0} fonte(s) apresentaram erro; confira o radar.`:
- 'Dados publicados recentemente. Alertas identificam possíveis mudanças, sem confirmar prazos ou elegibilidade.';
+ 'Dados públicos disponíveis. As alterações precisam de conferência nas fontes oficiais.';
+ if(!mailVerified)reason+=' Estado do envio por e-mail ainda não confirmado nesta cópia pública.';
  if(mail?.status==='falha')reason+=' O e-mail não foi entregue; verifique os Secrets de SMTP.';
  $('connection-hint').textContent=reason;
 }
@@ -406,12 +421,16 @@ async function update(){
  error=m.status==='rejected';if(m.status==='fulfilled')monitor=m.value;
  if(e.status==='fulfilled')mail=e.value;
  if(w.status==='fulfilled'&&w.value?.workflow_runs?.length)workflow=w.value.workflow_runs[0];
- render();$('connection-refresh').disabled=false;$('connection-refresh').textContent='↻ Verificar agora';
+ render();
+ if(typeof window.atualizarFavoritosColetivos==='function')window.atualizarFavoritosColetivos();
+ if(typeof window.atualizarCentralAlertas==='function')window.atualizarCentralAlertas();
+ $('connection-refresh').disabled=false;$('connection-refresh').textContent='↻ Atualizar dados';
 }
 update();setInterval(update,120000);
 })();
 </script>
 <script src="./supabase-config.js"></script>
 <script src="./favorites.js"></script>
+<script src="./notifications.js"></script>
 </body>
 </html>
