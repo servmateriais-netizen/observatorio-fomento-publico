@@ -22,9 +22,12 @@ jobs:
           node-version: '22'
       - name: Validar JavaScript
         run: |
+          node --check opportunity-identity.js
           node --check favorites.js
           node --check notifications.js
           node --check supabase-config.js
           node --check scripts/healthcheck.cjs
+      - name: Testar identificadores de edições e modalidades
+        run: node scripts/identity.test.cjs
       - name: Consultar Supabase de forma segura
         run: node scripts/healthcheck.cjs
