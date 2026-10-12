@@ -106,10 +106,20 @@
  <article class="surface panel portal-guide"><span class="portal-eyebrow">COMO UTILIZAR</span><h3>Da pesquisa ao acompanhamento</h3><div class="portal-guide-step"><b>01</b><div><strong>Pesquise</strong><p>Filtre chamadas por órgão, modalidade, situação ou tema.</p></div></div><div class="portal-guide-step"><b>02</b><div><strong>Favorite</strong><p>Ao marcar ☆, o edital entra na lista compartilhada do laboratório.</p></div></div><div class="portal-guide-step"><b>03</b><div><strong>Acompanhe</strong><p>O sistema verifica mudanças e envia alertas aos e-mails configurados.</p></div></div><p class="portal-legal">A triagem automática não substitui a leitura dos documentos oficiais.</p></article>
 </div>
 </section>
-<section id="page-opportunities" class="section"><div class="sectionhead"><div><div class="eyebrow mutedtitle">Base comparativa</div><h2>Catálogo de oportunidades</h2><p>Pesquise, filtre, marque favoritos e abra cada edital para ver público, exigências, valores e fontes.</p></div></div><div class="controls"><label class="search"><input id="search-input" type="search" placeholder="Pesquisar edital, público ou aplicação..." aria-label="Pesquisar editais"></label><select id="filter-type" aria-label="Filtrar por modalidade"><option value="all">Todas as modalidades</option><option value="ict">Pesquisa / ICT</option><option value="business">Empresa / startup</option></select><select id="filter-status" aria-label="Filtrar por prazo"><option value="all">Todos os editais (10)</option><option value="open">Prazo futuro</option><option value="restricted">Restrito / condicionado</option><option value="closed">Histórico encerrado</option><option value="saved">Favoritos ★</option></select><span id="filter-count" class="filtercount">—</span></div>
+<section id="page-opportunities" class="section"><div class="sectionhead"><div><div class="eyebrow mutedtitle">Base comparativa</div><h2>Catálogo de oportunidades</h2><p>Pesquise, filtre, marque favoritos e abra cada edital para ver público, exigências, valores e fontes.</p></div></div><div class="controls"><label class="search"><input id="search-input" type="search" placeholder="Pesquisar edital, público ou aplicação..." aria-label="Pesquisar editais"></label><select id="filter-type" aria-label="Filtrar por modalidade"><option value="all">Todas as modalidades</option><option value="ict">Pesquisa / ICT</option><option value="business">Empresa / startup</option></select><select id="filter-status" aria-label="Filtrar por prazo"><option value="all">Todos os editais de referência</option><option value="open">Prazo futuro</option><option value="restricted">Restrito / condicionado</option><option value="closed">Histórico encerrado</option><option value="saved">Favoritos ★</option></select><span id="filter-count" class="filtercount">—</span></div>
 <div class="catalog-tools"><label><input id="show-archive" type="checkbox">Exibir editais vencidos no catálogo</label><button id="reset-hidden" class="subtle-button" type="button">Restaurar ocultados</button><button id="jump-favorites" class="subtle-button" type="button">★ Meus favoritos</button></div>
-<div class="archive-info">Por padrão, editais encerrados pela data informada ficam no histórico. Você pode ocultar individualmente qualquer item, sem apagá-lo da base, e restaurá-lo depois. As datas são estimativas do catálogo e podem ser modificadas por retificações.</div>
-<div id="cards" class="cards"></div></section>
+<div class="archive-info">Os 10 editais de referência incluem situações vigentes e encerradas. Outras publicações identificadas automaticamente aparecem logo abaixo, sem informações de prazo presumidas. Você pode ocultar individualmente itens da base de referência e restaurá-los depois. As datas são estimativas do catálogo e podem ser modificadas por retificações.</div>
+<div id="cards" class="cards"></div>
+<div class="sectionhead portal-discovery-head">
+  <div><span class="portal-eyebrow">RADAR DE NOVAS OPORTUNIDADES</span>
+    <h2>Outras chamadas e novas edições</h2>
+    <p>Publicações descobertas nas fontes oficiais que ainda não constam no catálogo de referência. Uma nova edição é independente da anterior.</p>
+  </div><span class="pill grey" id="discovered-count">Aguardando coleta</span>
+</div>
+<div id="catalog-discovered" class="portal-radar-grid">
+  <div class="portal-empty">Aguardando dados públicos do monitoramento.</div>
+</div>
+</section>
 
 
 <section id="page-monitor" class="section">
