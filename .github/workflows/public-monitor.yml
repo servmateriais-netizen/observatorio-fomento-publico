@@ -1,0 +1,54 @@
+name: Atualizar radar e notificações no site
+
+on:
+  schedule:
+    # 08h17 e 17h17 em Brasília (UTC-3).
+    - cron: '17 11,20 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/public-monitor.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: observatorio-public-monitor
+  cancel-in-progress: false
+
+jobs:
+  acompanhar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Baixar o Observatório
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar bibliotecas de coleta
+        run: python -m pip install --disable-pip-version-check "requests>=2.31,<3" "beautifulsoup4>=4.12,<5"
+      - name: Consultar fontes oficiais e favoritos públicos
+        env:
+          SUPABASE_URL: https://amfytkbcqyrqzdfmikar.supabase.co
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_Q7Aq4Y1pMravP55bsi0gWg_zeejd_WN
+        run: |
+          python -m py_compile scripts/collect_public.py scripts/edition_identity.py
+          python scripts/collect_public.py
+      - name: Publicar histórico de notificações e radar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/public_monitor_state.json data/public_favorite_snapshot.json data/monitor.json data/notifications.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Atualizar radar e notificações internas"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          else
+            echo "Nenhuma alteração pública detectada."
+          fi
