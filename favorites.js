@@ -193,4 +193,6 @@
     await migrateLocalFavorites();
   }
   start();
+  // Atualiza a lista compartilhada em abas abertas a cada dois minutos.
+  setInterval(refreshShared, 120000);
 })();
