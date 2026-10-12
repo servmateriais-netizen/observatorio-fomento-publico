@@ -11,6 +11,7 @@
   ]);
   let sharing = [];
   let radar = [];
+  let discovered = [];
 
   const $ = id => document.getElementById(id);
   const escapeHTML = s => String(s ?? '').replace(/[&<>"']/g, c => ({
@@ -65,8 +66,17 @@
   if (!identity) throw new Error('Módulo de identificação das oportunidades ausente');
   const sharedKeys = () => new Set(sharing.map(row => row.chave));
   const catalogFor = (url,title) => identity.matchCatalog(window.observatorioCalls||[],url,title);
+  // Preservar IDs históricos já salvos. Edições futuras promovidas ao
+  // catálogo continuam com a MESMA chave dinâmica que tinham no radar.
+  const legacyIds = new Set(['proninc','coopict','coopemp','mineral','eureka',
+                             'regional','circular','agro','centelha','tecnova']);
   const optionsFor = (url,title) => catalogFor(url,title)
-    .map(c => ({key:identity.catalogKey(c.id),title:c.name,type:c.type})).filter(x=>x.key);
+    .map(c => ({
+      key: legacyIds.has(c.id) || !identity.extractEdition(c.name,c.source)
+        ? identity.catalogKey(c.id)
+        : identity.keyForSource(c.source,c.name),
+      title:c.name,type:c.type
+    })).filter(x=>x.key);
   const keyFor = (url,title) => {
     const options = optionsFor(url,title);
     return options.length===1 ? options[0].key
@@ -157,6 +167,35 @@
   window.alternarFavorito = toggle;
   window.atualizarFavoritosColetivos = refreshShared;
 
+  function drawDiscovered() {
+    const target=$('catalog-discovered');
+    if (!target) return;
+    if ($('discovered-count')) $('discovered-count').textContent =
+      discovered.length+' publicação(ões) para consulta';
+    target.innerHTML=discovered.length ? discovered.map((item,index)=>{
+      const edition=identity.extractEdition(item.title,item.url);
+      const key=keyFor(item.url,item.title);
+      const selected=sharedKeys().has(key);
+      const score=Number(item.relevance?.score||0);
+      const themes=(item.relevance?.themes||[]).slice(0,3);
+      return `<article class="portal-radar-card">
+        <div class="portal-radar-top"><span class="portal-org">${escapeHTML(item.org)}</span><span class="portal-score">
+          ${edition?'Programa '+escapeHTML(edition.program)+' · Edição '+edition.edition:'Publicação identificada'} · ${score}/100
+        </span></div>
+        <h3>${escapeHTML(item.title)}</h3>
+        <p>${escapeHTML(themes.join(' · ')||'Aderência a verificar')}
+          <span class="portal-legal" style="display:block;margin-top:7px">Prazo, modalidade e elegibilidade: consultar documento oficial.</span></p>
+        <div class="portal-radar-actions">
+          <a href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a>
+          <button type="button" data-discovered-fav="${index}" aria-label="${selected?'Desfavoritar':'Favoritar'} publicação">
+            ${selected?'★ Desfavoritar':'☆ Favoritar'}
+          </button>
+        </div>
+      </article>`;
+    }).join('') : '<div class="portal-empty">Nenhuma publicação adicional na última coleta disponível.</div>';
+  }
+  window.addEventListener('observatorio-shared-changed',drawDiscovered);
+
   async function loadRadar() {
     const target = $('overview-radar');
     const events = $('overview-events');
@@ -164,7 +203,12 @@
       const response = await fetch('./data/monitor.json?_=' + Date.now(), {cache: 'no-store'});
       if (!response.ok) throw new Error('Dados indisponíveis');
       const monitor = await response.json();
-      radar = (monitor.items || []).filter(item => validURL(item.url)).slice(0, 6);
+      const items=(monitor.items||[]).filter(item=>validURL(item.url));
+      radar=items.slice(0,6);
+      // O catálogo de 10 referências continua intacto; novas edições entram
+      // abaixo automaticamente, mesmo quando a aderência preliminar é baixa.
+      discovered=items.filter(item=>optionsFor(item.url,item.title).length===0).slice(0,100);
+      drawDiscovered();
       if ($('portal-updated')) {
         const at = monitor.generated_at ? new Date(monitor.generated_at) : null;
         $('portal-updated').textContent = at && !Number.isNaN(at.getTime())
@@ -202,6 +246,15 @@
       remove.disabled = true;
       await unregister(remove.dataset.sharedRemove);
       remove.disabled = false;
+      return;
+    }
+    const discoveredButton=e.target.closest('[data-discovered-fav]');
+    if (discoveredButton) {
+      const item=discovered[Number(discoveredButton.dataset.discoveredFav)];
+      if (!item) return;
+      discoveredButton.disabled=true;
+      await toggle(item.title,item.url,keyFor(item.url,item.title));
+      discoveredButton.disabled=false;
       return;
     }
     const button = e.target.closest('[data-portal-fav]');
