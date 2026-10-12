@@ -269,7 +269,14 @@ def main():
             elif not first_scan and not signature_old and entry["source"] == "descoberto":
                 kind = "Nova chamada identificada"
 
-            if kind:
+            # Evita avisos excessivos: mudanças de páginas gerais só entram
+            # no feed quando o edital está nos favoritos. Novas chamadas só
+            # entram se houver aderência preliminar; novas edições têm prioridade.
+            publish_event = bool(kind and (
+                newly_announced or watched_flag or
+                (kind == "Nova chamada identificada" and relevance["score"] >= 35)
+            ))
+            if publish_event:
                 evt = detect_event(
                     url, title, org, kind, signature,
                     watched=watched_flag,
@@ -291,7 +298,7 @@ def main():
                     docs[href] = label
             old_docs = old.get("docs", {})
             for href, label in list(docs.items())[:12]:
-                if old and href not in old_docs and not first_scan:
+                if old and href not in old_docs and not first_scan and watched_flag:
                     evt = detect_event(
                         href, f"{title} · {label}", org,
                         "Novo anexo ou documento de retificação identificado",
