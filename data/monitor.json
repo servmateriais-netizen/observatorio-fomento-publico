@@ -1,304 +1,375 @@
 {
-  "generated_at": "2026-10-12T14:22:30+00:00",
-  "last_success_at": "2026-10-12T14:22:30+00:00",
+  "generated_at": "2026-10-12T17:41:53+00:00",
+  "last_success_at": "2026-10-12T17:41:53+00:00",
   "status": "ok",
-  "checked_pages": 18,
-  "failures": [],
+  "checked_pages": 19,
   "discovered": 10,
+  "watched_count": 2,
   "items": [
     {
-      "title": "PRONINC 2026",
-      "org": "Finep",
       "url": "https://www.finep.gov.br/en/e/chamada-publica/222684/1057230",
+      "title": "PRONINC 2026 — Economia Solidária",
+      "org": "Finep",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 61,
+        "score": 60,
+        "level": "Média",
         "themes": [
           "Água e meio ambiente",
-          "Agro e fertilizantes",
-          "Economia circular",
-          "Pesquisa institucional"
-        ],
-        "level": "Média",
-        "route": "ICT ou empresa com cooperativa, conforme edital"
-      },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
-    },
-    {
-      "title": "Coopera Mais Brasil",
-      "org": "Finep",
-      "url": "https://www.finep.gov.br/w/finep-disponibiliza-r-220-milh%C3%B5es-para-inova%C3%A7%C3%A3o-em-cooperativas-de-agricultura-familiar",
-      "relevance": {
-        "score": 51,
-        "themes": [
-          "Agro e fertilizantes",
-          "Economia circular",
           "Startups e inovação",
           "Pesquisa institucional"
         ],
-        "level": "Média",
-        "route": "ICT ou empresa com cooperativa, conforme edital"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
-      "title": "Economia Circular",
+      "url": "https://faleconosco.finep.gov.br/web/guest/w/finep-disponibiliza-r-220-milh%C3%B5es-para-inova%C3%A7%C3%A3o-em-cooperativas-de-agricultura-familiar",
+      "title": "Coopera Mais Brasil — Tecnologias para Agricultura Familiar (ICTs)",
       "org": "Finep",
-      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/777",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 41,
+        "score": 60,
+        "level": "Média",
         "themes": [
-          "Economia circular",
+          "Agro e fertilizantes",
           "Startups e inovação",
           "Pesquisa institucional"
         ],
-        "level": "Média",
-        "route": "ICT ou empresa com cooperativa, conforme edital"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
-      "title": "Subvenção Regional",
-      "org": "Finep",
       "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/776",
+      "title": "Finep Mais Inovação — Subvenção Econômica Regional",
+      "org": "Finep",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 37,
+        "score": 60,
+        "level": "Média",
         "themes": [
           "Agro e fertilizantes",
           "Startups e inovação",
           "Pesquisa institucional"
         ],
-        "level": "Média",
-        "route": "ICT ou empresa com cooperativa, conforme edital"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
-      "title": "Agroindústria Sustentável",
-      "org": "Finep",
       "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/774",
+      "title": "Finep Mais Inovação — Cadeias Agroindustriais Sustentáveis",
+      "org": "Finep",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 37,
+        "score": 60,
+        "level": "Média",
         "themes": [
           "Agro e fertilizantes",
           "Startups e inovação",
           "Pesquisa institucional"
         ],
-        "level": "Média",
-        "route": "ICT ou empresa com cooperativa, conforme edital"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
-      "title": "Transformação Mineral",
-      "org": "Finep",
-      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/771",
-      "relevance": {
-        "score": 29,
-        "themes": [
-          "Startups e inovação",
-          "Pesquisa institucional"
-        ],
-        "level": "Baixa",
-        "route": "ICT ou empresa com cooperativa, conforme edital"
-      },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
-    },
-    {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-002-2026-programa-de-apoio-a-projetos-de-extensao-pape-da-fapepi/",
       "title": "EDITAL 002/2026 – PROGRAMA DE APOIO A PROJETOS DE EXTENSÃO (PAPE) DA FAPEPI",
       "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-002-2026-programa-de-apoio-a-projetos-de-extensao-pape-da-fapepi/",
+      "source": "descoberto",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 28,
+        "score": 60,
+        "level": "Média",
         "themes": [
           "Agro e fertilizantes",
           "Startups e inovação",
           "Pesquisa institucional"
         ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
-      "title": "Centelha 3 Piauí",
-      "org": "FAPEPI",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/771",
+      "title": "Finep Mais Inovação — Transformação Mineral",
+      "org": "Finep",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/777",
+      "title": "Finep Mais Inovação — Economia Circular e Cidades Sustentáveis",
+      "org": "Finep",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
       "url": "https://www.fapepi.pi.gov.br/edital/edital-006-2025-programa-centelha-3-piaui/",
+      "title": "Programa Centelha 3 — Piauí",
+      "org": "FAPEPI",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 25,
+        "score": 40,
+        "level": "Média",
         "themes": [
-          "Startups e inovação"
+          "Startups e inovação",
+          "Pesquisa institucional"
         ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": "centelha",
+      "edition": 3,
+      "is_new_edition": false
     },
     {
-      "title": "Tecnova 3 Piauí",
-      "org": "FAPEPI",
       "url": "https://www.fapepi.pi.gov.br/edital/selecao-publica-fapepi-finep-mcti-edital-n-01-2024-programa-tecnova3-piaui/",
-      "relevance": {
-        "score": 23,
-        "themes": [
-          "Startups e inovação"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
-      "source": "conhecido",
-      "last_seen": "2026-10-12T14:22:30+00:00"
-    },
-    {
-      "title": "EDITAL Nº 005/2026 – PROGRAMA DE APOIO À PÓS-GRADUAÇÃO STRICTO SENSU (PAPG) – BOLSAS DE MESTRADO E DOUTORADO",
+      "title": "Tecnova 3 — Piauí (edição de referência)",
       "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-005-2026-programa-de-apoio-a-pos-graduacao-stricto-sensu-papg-bolsas-de-mestrado-e-doutorado/",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 20,
+        "score": 40,
+        "level": "Média",
         "themes": [
           "Startups e inovação",
           "Pesquisa institucional"
         ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": "tecnova",
+      "edition": 3,
+      "is_new_edition": false
     },
     {
-      "title": "EDITAL Nº 003/2026 – PROGRAMA DE APOIO À FIXAÇÃO DE DOUTORES NO BRASIL ( PROFIX-CB)",
-      "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-003-2026-programa-de-apoio-a-fixacao-de-doutores-no-brasil-profix-cb/",
-      "relevance": {
-        "score": 20,
-        "themes": [
-          "Startups e inovação",
-          "Pesquisa institucional"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
-      "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
-    },
-    {
-      "title": "Chamada Pública nº 07/2025 Para Fomento de Núcleos de Inteligência Territorial (NIT)",
-      "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/chamada-publica-no-07-2025-para-fomento-de-nucleos-de-inteligencia-territorial-nit/",
-      "relevance": {
-        "score": 20,
-        "themes": [
-          "Startups e inovação",
-          "Pesquisa institucional"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
-      "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
-    },
-    {
-      "title": "EDITAL DE CHAMAMENTO PÚBLICO 09/2026",
-      "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-de-chamamento-publico-09-2026-2/",
-      "relevance": {
-        "score": 14,
-        "themes": [
-          "Startups e inovação"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
-      "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
-    },
-    {
-      "title": "Edital 008/2026 – PDPG – PARCERIAS ESTRATÉGICAS NOS ESTADOS VI – REDE DE PESQUISA E DESENVOLVIMENTO DA REGIÃO NORDESTE",
-      "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-fapepi-008-2026-pdpg-parcerias-estrategicas-nos-estados-vi-rede-de-pesquisa-e-desenvolvimento-da-regiao-nordeste/",
-      "relevance": {
-        "score": 14,
-        "themes": [
-          "Startups e inovação"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
-      "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
-    },
-    {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-007-2026-programa-de-desenvolvimento-cientifico-e-tecnologico-regional-do-piaui-pdctr-pi/",
       "title": "EDITAL Nº 007/2026 – PROGRAMA DE DESENVOLVIMENTO CIENTÍFICO E TECNOLÓGICO REGIONAL DO PIAUÍ (PDCTR-PI)",
       "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-007-2026-programa-de-desenvolvimento-cientifico-e-tecnologico-regional-do-piaui-pdctr-pi/",
+      "source": "descoberto",
+      "last_seen": "2026-10-12T17:41:53+00:00",
       "relevance": {
-        "score": 14,
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-005-2026-programa-de-apoio-a-pos-graduacao-stricto-sensu-papg-bolsas-de-mestrado-e-doutorado/",
+      "title": "EDITAL Nº 005/2026 – PROGRAMA DE APOIO À PÓS-GRADUAÇÃO STRICTO SENSU (PAPG) – BOLSAS DE MESTRADO E DOUTORADO",
+      "org": "FAPEPI",
+      "source": "descoberto",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-003-2026-programa-de-apoio-a-fixacao-de-doutores-no-brasil-profix-cb/",
+      "title": "EDITAL Nº 003/2026 – PROGRAMA DE APOIO À FIXAÇÃO DE DOUTORES NO BRASIL ( PROFIX-CB)",
+      "org": "FAPEPI",
+      "source": "descoberto",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
+      "url": "https://faleconosco.finep.gov.br/web/guest/w/finep-abre-chamada-de-r-7-milh%C3%B5es-da-rede-eureka-para-financiar-projetos-de-resili%C3%AAncia-a-desastres",
+      "title": "EUREKA — Resiliência a Desastres (fase nacional)",
+      "org": "Finep",
+      "source": "catálogo",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 20,
+        "level": "Baixa",
         "themes": [
           "Startups e inovação"
         ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
+        "route": "Proponente e requisitos a confirmar no edital oficial"
       },
-      "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-de-chamamento-publico-09-2026-2/",
+      "title": "EDITAL DE CHAMAMENTO PÚBLICO 09/2026",
+      "org": "FAPEPI",
+      "source": "descoberto",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 20,
+        "level": "Baixa",
+        "themes": [
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-fapepi-008-2026-pdpg-parcerias-estrategicas-nos-estados-vi-rede-de-pesquisa-e-desenvolvimento-da-regiao-nordeste/",
+      "title": "Edital 008/2026 – PDPG – PARCERIAS ESTRATÉGICAS NOS ESTADOS VI – REDE DE PESQUISA E DESENVOLVIMENTO DA REGIÃO NORDESTE",
+      "org": "FAPEPI",
+      "source": "descoberto",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 20,
+        "level": "Baixa",
+        "themes": [
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-006-2026-programa-de-bolsas-de-iniciacao-cientifica-da-fapepi-pbic/",
       "title": "EDITAL Nº 006/2026 – PROGRAMA DE BOLSAS DE INICIAÇÃO CIENTÍFICA DA FAPEPI – PBIC",
       "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-006-2026-programa-de-bolsas-de-iniciacao-cientifica-da-fapepi-pbic/",
-      "relevance": {
-        "score": 14,
-        "themes": [
-          "Startups e inovação"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
       "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 20,
+        "level": "Baixa",
+        "themes": [
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-004-2026-premio-fapepi-de-popularizacao-da-ciencia-arqueologa-niede-guidon/",
       "title": "EDITAL Nº 004/2026 – PRÊMIO FAPEPI DE POPULARIZAÇÃO DA CIÊNCIA “ARQUEÓLOGA NIÈDE GUIDON”",
       "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-004-2026-premio-fapepi-de-popularizacao-da-ciencia-arqueologa-niede-guidon/",
-      "relevance": {
-        "score": 14,
-        "themes": [
-          "Startups e inovação"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
       "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 20,
+        "level": "Baixa",
+        "themes": [
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     },
     {
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-01-2026-programa-de-apoio-a-realizacao-de-eventos-cientificos-de-divulgacao-cientifica-e-tecnologica-pap/",
       "title": "EDITAL 01/2026 – PROGRAMA DE APOIO À REALIZAÇÃO DE EVENTOS CIENTÍFICOS, DE DIVULGAÇÃO CIENTÍFICA E TECNOLÓGICA (PAP)",
       "org": "FAPEPI",
-      "url": "https://www.fapepi.pi.gov.br/edital/edital-01-2026-programa-de-apoio-a-realizacao-de-eventos-cientificos-de-divulgacao-cientifica-e-tecnologica-pap/",
-      "relevance": {
-        "score": 14,
-        "themes": [
-          "Startups e inovação"
-        ],
-        "level": "Baixa",
-        "route": "Startup/empresa, conforme regras estaduais"
-      },
       "source": "descoberto",
-      "last_seen": "2026-10-12T14:22:30+00:00"
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 20,
+        "level": "Baixa",
+        "themes": [
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
+    },
+    {
+      "url": "https://www.fapepi.pi.gov.br/edital/chamada-publica-no-07-2025-para-fomento-de-nucleos-de-inteligencia-territorial-nit/",
+      "title": "Chamada Pública nº 07/2025 Para Fomento de Núcleos de Inteligência Territorial (NIT)",
+      "org": "FAPEPI",
+      "source": "descoberto",
+      "last_seen": "2026-10-12T17:41:53+00:00",
+      "relevance": {
+        "score": 20,
+        "level": "Baixa",
+        "themes": [
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      },
+      "program": null,
+      "edition": null,
+      "is_new_edition": false
     }
   ],
   "events": [],
-  "watched_count": 0,
+  "failures": [],
   "notes": [
-    "Mudanças detectadas não comprovam retificação, prazo ou elegibilidade.",
-    "Cópia pública informativa. Dados podem estar desatualizados até a próxima sincronização."
+    "Consultar a fonte oficial antes de agir.",
+    "Avisos internos na central do Observatório; e-mails desativados."
   ]
 }

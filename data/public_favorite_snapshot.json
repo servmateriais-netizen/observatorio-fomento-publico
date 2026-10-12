@@ -1,0 +1,17 @@
+{
+  "updated_at": "2026-10-12T17:41:53+00:00",
+  "items": [
+    {
+      "chave": "catalog:proninc",
+      "url": "https://www.finep.gov.br/en/e/chamada-publica/222684/1057230",
+      "titulo": "PRONINC 2026 — Economia Solidária",
+      "ativo": true
+    },
+    {
+      "chave": "catalog:coopemp",
+      "url": "https://faleconosco.finep.gov.br/web/guest/w/finep-disponibiliza-r-220-milh%C3%B5es-para-inova%C3%A7%C3%A3o-em-cooperativas-de-agricultura-familiar",
+      "titulo": "Coopera Mais Brasil — Empresas",
+      "ativo": true
+    }
+  ]
+}
