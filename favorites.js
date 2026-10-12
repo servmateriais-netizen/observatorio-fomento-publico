@@ -60,57 +60,79 @@
     return response.status === 204 ? null : response.json();
   }
 
+  // Uma única fonte de verdade: todos os favoritos são coletivos e ficam no Supabase.
+  const sharedURLs = () => new Set(sharing.map(row => row.url));
+  window.getSharedFavorites = () => sharing.slice();
+  window.isSharedFavorite = url => sharedURLs().has(url);
+  function publishChange() {
+    window.dispatchEvent(new Event('observatorio-shared-changed'));
+  }
   function drawShared() {
     const list = $('overview-favorites');
     if (list) {
-      const recent = sharing.slice(0, 8);
-      list.innerHTML = recent.length ? recent.map(row => `
+      list.innerHTML = sharing.length ? sharing.map(row => `
         <article class="portal-item">
           <span class="portal-org">${escapeHTML(row.orgao)}</span>
           <h3>${escapeHTML(row.titulo)}</h3>
           <div class="portal-item-bottom">
-            <span>Acompanhamento coletivo</span>
+            <button type="button" data-shared-remove="${escapeHTML(row.url)}" class="portal-remove">★ Desfavoritar</button>
             <a href="${escapeHTML(row.url)}" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a>
           </div>
-        </article>`).join('') : '<div class="portal-empty">Ainda não existem editais cadastrados coletivamente. Use ☆ em um edital para começar.</div>';
+        </article>`).join('') : '<div class="portal-empty">Nenhum edital favoritado coletivamente. Marque ☆ em um edital.</div>';
     }
     if ($('shared-fav-count')) $('shared-fav-count').textContent = sharing.length.toLocaleString('pt-BR');
     if ($('portal-shared-total')) $('portal-shared-total').textContent = String(sharing.length) + ' edital(is) acompanhados';
-    if ($('portal-shared-status')) $('portal-shared-status').textContent = 'Sincronizado com a seleção pública do laboratório';
+    if ($('portal-shared-status')) $('portal-shared-status').textContent = 'Mesmos favoritos no catálogo, radar e acompanhamento';
+    publishChange();
   }
-
   async function refreshShared() {
     try {
       sharing = await request('/editais_favoritos?select=url,titulo,orgao,criado_em&ativo=eq.true&order=criado_em.desc&limit=500');
       drawShared();
+      return true;
     } catch (err) {
-      if ($('portal-shared-status')) $('portal-shared-status').textContent = 'Não foi possível consultar os favoritos online';
-      if ($('overview-favorites')) $('overview-favorites').innerHTML = '<div class="portal-empty">Favoritos online indisponíveis. Confira a conexão com o Supabase.</div>';
-      console.warn('Observatório: leitura dos favoritos indisponível:', err.message);
+      if ($('portal-shared-status')) $('portal-shared-status').textContent = 'Falha na consulta ao Supabase';
+      console.warn('Favoritos online indisponíveis:', err.message);
+      return false;
     }
   }
-
   async function register(title, url) {
     if (!validURL(url)) {
-      notify('Esta fonte precisa ter um endereço oficial Finep ou FAPEPI para receber acompanhamento.', 'warn');
+      notify('Para acompanhar, o edital precisa ter um endereço Finep ou FAPEPI válido.', 'warn');
       return false;
     }
     try {
-      const id = await request('/rpc/favoritar_edital', {
+      await request('/rpc/favoritar_edital', {
         method: 'POST',
-        body: JSON.stringify({p_url: url, p_titulo: String(title || 'Edital acompanhado').slice(0, 180)})
+        body: JSON.stringify({p_url:url, p_titulo:String(title || 'Edital acompanhado').slice(0,180)})
       });
-      if (!Number.isInteger(id) && typeof id !== 'number') throw new Error('Resposta inesperada');
-      notify('★ Edital incluído no monitoramento coletivo. Alterações relevantes serão avaliadas para alerta por e-mail.');
-      await refreshShared();
+      const updated = await refreshShared();
+      if (!updated) throw new Error('Não foi possível confirmar a sincronização');
+      notify('★ Edital favoritado e incluído no acompanhamento automático do laboratório.');
       return true;
     } catch (err) {
-      notify('Favorito salvo neste navegador, mas não sincronizado com o laboratório. ' + err.message, 'warn');
+      notify('Não foi possível favoritar no Supabase: ' + err.message, 'warn');
       return false;
     }
   }
-
+  async function unregister(url) {
+    if (!validURL(url)) return false;
+    try {
+      await request('/rpc/desfavoritar_edital', {method:'POST', body:JSON.stringify({p_url:url})});
+      if (!await refreshShared()) throw new Error('Falha ao confirmar o banco');
+      notify('☆ Edital removido dos favoritos coletivos.');
+      return true;
+    } catch (err) {
+      notify('Não foi possível remover o favorito: ' + err.message, 'warn');
+      return false;
+    }
+  }
+  async function toggle(title,url) {
+    return sharedURLs().has(url) ? unregister(url) : register(title,url);
+  }
   window.registrarAcompanhamento = register;
+  window.removerAcompanhamento = unregister;
+  window.alternarFavorito = toggle;
   window.atualizarFavoritosColetivos = refreshShared;
 
   async function loadRadar() {
@@ -148,49 +170,34 @@
   }
 
   document.addEventListener('click', async e => {
+    const remove = e.target.closest('[data-shared-remove]');
+    if (remove) {
+      remove.disabled = true;
+      await unregister(remove.dataset.sharedRemove);
+      remove.disabled = false;
+      return;
+    }
     const button = e.target.closest('[data-portal-fav]');
     if (!button) return;
     const item = radar[Number(button.dataset.portalFav)];
     if (!item) return;
     button.disabled = true;
-    const ok = await register(item.title, item.url);
+    await toggle(item.title,item.url);
     button.disabled = false;
-    button.textContent = ok ? '★ Acompanhado' : '☆ Acompanhar';
-    if (ok) {
-      const saved = new Set(JSON.parse(localStorage.getItem('observatorio_mon_favs') || '[]'));
-      saved.add(item.url);
-      localStorage.setItem('observatorio_mon_favs', JSON.stringify([...saved]));
-      window.dispatchEvent(new Event('observatorio-favorites-changed'));
-    }
   });
-
-  // Compatibilidade com antigos favoritos locais, criados antes da integração.
-  async function migrateLocalFavorites() {
-    try {
-      const ids = JSON.parse(localStorage.getItem('observatorio_favs') || '[]');
-      const urls = JSON.parse(localStorage.getItem('observatorio_mon_favs') || '[]');
-      const local = [
-        ...ids.map(id => (window.observatorioCalls || []).find(x => x.id === id))
-          .filter(Boolean).map(x => ({title:x.name, url:x.source})),
-        ...urls.map(url => ({title: (sharing.find(x => x.url === url)?.titulo || 
-                    (radar.find(x => x.url === url)?.title) || 'Edital favoritado'), url}))
-      ];
-      for (const item of local.slice(0, 20)) {
-        if (!validURL(item.url) || sharing.some(x => x.url === item.url)) continue;
-        try {
-          await request('/rpc/favoritar_edital', {
-            method: 'POST',
-            body: JSON.stringify({p_url:item.url, p_titulo:String(item.title).slice(0, 180)})
-          });
-        } catch (_) {}
-      }
-      if (local.length) await refreshShared();
-    } catch (_) {}
-  }
+  window.addEventListener('observatorio-shared-changed', () => {
+    document.querySelectorAll('[data-portal-fav]').forEach(button => {
+      const item = radar[Number(button.dataset.portalFav)];
+      if (!item) return;
+      const selected=sharedURLs().has(item.url);
+      button.textContent=selected?'★ Desfavoritar':'☆ Favoritar';
+      button.setAttribute('aria-label',selected?'Desfavoritar edital':'Favoritar edital');
+    });
+  });
 
   async function start() {
     await Promise.all([refreshShared(), loadRadar()]);
-    await migrateLocalFavorites();
+    publishChange();
   }
   start();
   // Atualiza a lista compartilhada em abas abertas a cada dois minutos.
