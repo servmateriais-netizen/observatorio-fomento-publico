@@ -76,3 +76,92 @@ body{font-size:14.5px;line-height:1.66}
 .notification-detail{padding:13px 15px;border-left:3px solid #89b5d7;background:#f3f8fd;margin-top:16px;border-radius:7px;font-size:12px;color:#42657e;line-height:1.65}
 @media(max-width:980px){.notification-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.notification-head{flex-direction:column;gap:12px}.notification-metrics{grid-template-columns:1fr 1fr}.notification-center{padding:17px}.notification-metric{padding:13px 11px}.notification-metric strong{font-size:15px}}
+
+
+/* Centro de notificações no aplicativo (sem envio de e-mails). */
+.app-notify-area{position:relative;z-index:60}
+.app-notify-button{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  position:relative;min-height:40px;padding:9px 13px;
+  border:1px solid #d5e4ef;border-radius:10px;
+  background:#fff;color:#15466e;font-size:12px;font-weight:750;
+  cursor:pointer;white-space:nowrap;
+}
+.app-notify-button:hover,.app-notify-button[aria-expanded="true"]{
+  background:#eaf3fb;border-color:#adcbe0
+}
+.app-notify-count{
+  position:absolute;top:-8px;right:-8px;min-width:20px;height:20px;
+  display:grid;place-items:center;padding:0 5px;border-radius:999px;
+  background:#a94337;color:white;font-size:10px;font-weight:900;
+  box-shadow:0 2px 7px #163c4b29
+}
+.app-notify-count[hidden],.app-notify-panel[hidden]{display:none!important}
+.app-notify-panel{
+  position:absolute;right:0;top:calc(100% + 10px);
+  width:min(445px,calc(100vw - 32px));max-height:min(70vh,620px);
+  overflow:hidden;background:white;border:1px solid #d8e5ef;
+  border-radius:15px;box-shadow:0 22px 55px #0929472f;
+  display:flex;flex-direction:column;z-index:95
+}
+.app-notify-head{padding:19px 20px 14px;display:flex;align-items:start;
+  justify-content:space-between;gap:10px;border-bottom:1px solid #e7edf5}
+.app-notify-head h3{font-size:20px;margin:0;color:#143e60;line-height:1.35}
+.app-notify-head p{font-size:12px;color:#698399;margin:5px 0 0}
+.app-notify-head button{font-size:11px;line-height:1.4}
+.app-notify-preview{overflow-y:auto;padding:5px 16px;min-height:90px;scrollbar-width:thin}
+.app-notify-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  flex-wrap:wrap;padding:14px 18px;border-top:1px solid #e7edf5;background:#f8fbff}
+.app-notify-footer span{font-size:11px;color:#678199}
+.app-notify-footer button{font-size:12px}
+.app-notify-history{margin-top:22px;padding-top:21px;border-top:1px solid #e3ebf4}
+.app-notify-history h3{font-size:19px;color:#153e60;margin:0}
+.app-notify-history select{padding:9px 12px;border-radius:9px;border:1px solid #dbe6ef;
+  background:white;color:#2c526e;font-size:12px}
+.site-notification-list{display:grid;gap:10px;margin-top:14px}
+.site-notification{
+  display:flex;gap:12px;align-items:flex-start;padding:14px;
+  border-radius:11px;border:1px solid #e0eaf3;background:#fff;
+  min-width:0
+}
+.site-notification.is-unread{border-color:#b8d8ed;background:#f6fbff}
+.site-notification.is-read{opacity:.78}
+.site-notification-icon{display:grid;place-items:center;flex:0 0 30px;
+  width:30px;height:30px;border-radius:9px;
+  background:#e7f3fc;color:#126797;font-size:15px;font-weight:850}
+.site-notification-body{min-width:0;flex:1}
+.site-notification-body strong{
+  display:block;color:#16415f;font-size:13px;line-height:1.55;
+  font-weight:800;overflow-wrap:anywhere;margin:4px 0 4px
+}
+.site-notification-body p{margin:0 0 9px;color:#6b8294;font-size:11.5px;
+  line-height:1.55}
+.site-notification-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+  font-size:10px;font-weight:780;color:#2a749f}
+.site-notification-meta time{margin-left:auto;font-size:10px;font-weight:500;color:#8193a2}
+.site-notification-relevant{background:#fff1d2;color:#956514;border-radius:5px;
+  padding:2px 5px}
+.site-notification-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.site-notification-actions a{
+  color:#16679b;text-decoration:none;font-size:11px;font-weight:770}
+.site-notification-actions a:hover{text-decoration:underline}
+.site-notification-actions button{
+  color:#687e90;font-size:11px;border:0;background:transparent;padding:3px;
+  cursor:pointer;text-decoration:underline}
+.site-notification-actions span{font-size:10px;color:#8497a6}
+.app-notify-preview .site-notification{border:0;border-bottom:1px solid #e8eff5;
+  border-radius:0;padding:14px 2px;background:transparent}
+.app-notify-preview .site-notification:last-child{border-bottom:0}
+.notification-metric strong#notify-unread-count{color:#195d86}
+@media(max-width:800px){
+ .app-notify-label{display:none}
+ .app-notify-button{width:42px;padding:9px}
+ .app-notify-panel{position:fixed;top:66px;right:12px;max-height:calc(100dvh - 90px)}
+ .app-notify-head{padding:15px}
+ .site-notification-meta time{width:100%;margin-left:0}
+}
+@media(max-width:430px){
+ .notification-metrics{grid-template-columns:1fr 1fr}
+ .app-notify-panel{left:12px;width:auto}
+ .app-notify-head{flex-wrap:wrap}
+}
