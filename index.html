@@ -62,6 +62,7 @@
 .retif-note{font-size:12px;background:#f0f8f3;color:#3a6958;padding:12px;border-radius:9px}
 @media print{.interest-btn,.subtle-button,.catalog-tools,.retif-actions button{display:none!important}}
 </style>
+<link rel="stylesheet" href="./portal.css">
 </head>
 <body>
 <svg aria-hidden="true" style="display:none" xmlns="http://www.w3.org/2000/svg"><symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol><symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></symbol><symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l4-5 3 2 4-6"/></symbol><symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></symbol><symbol id="icon-book" viewBox="0 0 24 24"><path d="M12 21V6c-2-2-5-2-9-2v15c4 0 7 0 9 2Zm0 0V6c2-2 5-2 9-2v15c-4 0-7 0-9 2Z"/></symbol><symbol id="icon-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></symbol><symbol id="icon-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></symbol><symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol></svg>
@@ -134,8 +135,8 @@
 <section id="page-retifications" class="section">
  <div class="sectionhead"><div><div class="eyebrow mutedtitle">Acompanhamento direcionado</div><h2>Retificações e editais favoritos</h2><p>Marque ★ nos editais de interesse. As mudanças de páginas ou anexos serão exibidas aqui quando a rotina identificar eventos relacionados; <strong>qualquer possível retificação exige leitura do documento oficial.</strong></p></div></div>
  <div class="split">
-   <div class="surface panel"><h3>★ Editais que estou acompanhando</h3><p class="muted" style="font-size:12px">Favoritos ficam salvos somente neste navegador. Para receber alertas por e-mail, peça ao responsável pelo Observatório que inclua o edital no monitoramento privado.</p><div id="watched-favorites" class="retif-list"></div></div>
-   <div class="surface panel"><h3>Como receber um aviso?</h3><p class="muted" style="font-size:12px">1. Favorite o edital no catálogo ou no radar.<br>2. Peça ao responsável que aprove o acompanhamento no sistema privado.<br>3. As notificações automáticas serão enviadas apenas aos destinatários previamente configurados pelo responsável.</p><div class="retif-note">O alerta é de <b>possível alteração</b> (retificação, prazo, anexo), não uma confirmação jurídica. Apenas o proprietário do repositório pode autorizar novos acompanhamentos; outros visitantes podem salvar favoritos locais.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
+   <div class="surface panel"><h3>★ Editais que estou acompanhando</h3><p class="muted" style="font-size:12px">Ao marcar ☆, o edital é cadastrado na seleção coletiva do laboratório. Os favoritos locais ficam salvos neste navegador; retirar a estrela local não exclui o acompanhamento coletivo.</p><div id="watched-favorites" class="retif-list"></div></div>
+   <div class="surface panel"><h3>Como receber um aviso?</h3><p class="muted" style="font-size:12px">1. Marque ☆ no edital desejado.<br>2. O Supabase registra o acompanhamento coletivo automaticamente.<br>3. O sistema verifica mudanças nas próximas coletas e envia alertas relevantes aos e-mails configurados.</p><div class="retif-note">O alerta é de <b>possível alteração</b> (retificação, prazo, anexo), não uma confirmação jurídica. O site é público e qualquer visitante pode incluir editais no acompanhamento. Os e-mails são enviados apenas aos endereços do laboratório.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
  </div>
  <div class="surface panel" style="margin-top:16px"><div class="row spread"><h3 style="margin-bottom:0">Histórico de possíveis retificações</h3><select id="retif-filter" aria-label="Filtrar retificações" style="border:1px solid var(--border);padding:9px;border-radius:9px"><option value="favorites">Somente favoritos</option><option value="all">Todas as alterações</option></select></div><p class="muted" style="font-size:12px;margin-top:10px">Datas em vermelho correspondem à detecção pelo robô, não necessariamente à publicação oficial. Verifique o edital vigente, o documento e seus anexos.</p><div id="retif-events" class="retif-list"></div></div>
 </section>
@@ -230,7 +231,13 @@ function renderCards(){
  document.getElementById('filter-count').textContent=list.length+' resultado'+(list.length!==1?'s':'');
  document.getElementById('cards').innerHTML=list.map(c=>`<article class="callcard"><div class="cardhead"><div class="pills">${statush(c)}${c.featured?'<span class="pill">Destaque</span>':''}</div><button class="star ${favs.includes(c.id)?'faved':''}" data-fav="${c.id}" aria-label="${favs.includes(c.id)?'Remover dos':'Adicionar aos'} favoritos" title="${favs.includes(c.id)?'Remover favorito':'Favoritar para acompanhar'}">${favs.includes(c.id)?'★':'☆'}</button></div><div class="cardcat">${safe(c.category)}</div><h3>${safe(c.name)}</h3><p>${safe(c.summary)}</p><div class="row spread" style="align-items:end"><div><small class="muted">Recursos totais do edital</small><div class="money">${safe(c.budgetShort)}</div></div><div style="text-align:right"><small class="muted">Por proposta</small><div style="font-size:11px;font-weight:750;max-width:200px">${safe(c.per)}</div></div></div><div class="cardmetas"><span>Prazo: <strong>${dateBR(c.date)}</strong>${c.time?' · '+c.time:''}</span><span>${c.type==='ict'?'ICT / instituição':'Empresa / startup'}</span></div><div class="cardbuttons"><button class="linkbtn" data-detail="${c.id}">Explorar edital ↗</button><button class="subtle-button" data-hide="${c.id}">Ocultar</button>${favs.includes(c.id)?`<button class="interest-btn" data-request="${c.id}">✉ Alertar retificação</button>`:''}<a href="${c.source}" target="_blank" rel="noopener noreferrer" style="font-size:11px">Fonte oficial</a></div></article>`).join('')||'<div class="empty">Nenhum edital neste filtro. Consulte o histórico ou restaure os ocultados.</div>';
  document.querySelectorAll('#cards [data-detail]').forEach(b=>b.addEventListener('click',()=>openDetail(b.dataset.detail)));
- document.querySelectorAll('#cards [data-fav]').forEach(b=>b.addEventListener('click',()=>{const id=b.dataset.fav;favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];storeWrite('observatorio_favs',favs);renderCards();window.dispatchEvent(new Event('observatorio-favorites-changed'))}));
+ document.querySelectorAll('#cards [data-fav]').forEach(b=>b.addEventListener('click',()=>{
+ const id=b.dataset.fav,adding=!favs.includes(id);
+ favs=adding?[...favs,id]:favs.filter(x=>x!==id);
+ storeWrite('observatorio_favs',favs);renderCards();
+ window.dispatchEvent(new Event('observatorio-favorites-changed'));
+ if(adding){const item=calls.find(x=>x.id===id);if(item)window.registrarAcompanhamento?.(item.name,item.source)}
+}));
  document.querySelectorAll('#cards [data-hide]').forEach(b=>b.addEventListener('click',()=>{hiddenCalls=[...new Set([...hiddenCalls,b.dataset.hide])];storeWrite('observatorio_hidden_calls',hiddenCalls);renderCards()}));
  document.querySelectorAll('#cards [data-request]').forEach(b=>b.addEventListener('click',()=>{const c=calls.find(x=>x.id===b.dataset.request);if(c)window.requestEditionWatch(c.name,c.source)}));
 }
@@ -281,7 +288,13 @@ function show(){
   const r=x.relevance||{};const cls=r.score>=65?'':r.score>=35?'mid':'low';
   return `<article class="mon-card"><div class="mon-pills"><span class="mon-tag mon-rank ${cls}">${esc(r.level)} aderência · ${esc(r.score)}/100</span><span class="mon-tag">${esc(x.org)}</span></div><div class="row spread"><h3>${esc(x.title)}</h3><button class="star ${star.includes(x.url)?'faved':''}" data-mon-fav="${arr.indexOf(x)}" aria-label="Favoritar publicação">${star.includes(x.url)?'★':'☆'}</button></div><p><strong>Temas:</strong> ${esc((r.themes||[]).join(', ')||'Análise preliminar')}</p><p><strong>Possível proponente:</strong> ${esc(r.route||'A confirmar')}</p><div class="mon-notice">O monitoramento <strong>não confirma inscrição aberta</strong>, prazo ou elegibilidade. Consulte o edital e suas retificações.</div><div class="retif-actions"><button class="subtle-button" data-mon-hide="${arr.indexOf(x)}">Ocultar</button>${star.includes(x.url)?`<button class="interest-btn" data-mon-watch="${arr.indexOf(x)}">✉ Alertar retificação</button>`:''}<a class="mon-link" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">Abrir fonte oficial ↗</a></div></article>`;
  }).join(''):'<div class="mon-empty">Nenhuma publicação atende aos filtros ou a coleta ainda não foi executada.</div>';
- document.querySelectorAll('#mon-items [data-mon-fav]').forEach(b=>b.addEventListener('click',()=>{const u=arr[Number(b.dataset.monFav)].url;const s=new Set(star);s.has(u)?s.delete(u):s.add(u);localStorage.setItem('observatorio_mon_favs',JSON.stringify([...s]));show();window.dispatchEvent(new Event('observatorio-favorites-changed'))}));
+ document.querySelectorAll('#mon-items [data-mon-fav]').forEach(b=>b.addEventListener('click',()=>{
+ const item=arr[Number(b.dataset.monFav)],u=item.url,s=new Set(star),adding=!s.has(u);
+ if(adding)s.add(u);else s.delete(u);
+ localStorage.setItem('observatorio_mon_favs',JSON.stringify([...s]));
+ show();window.dispatchEvent(new Event('observatorio-favorites-changed'));
+ if(adding)window.registrarAcompanhamento?.(item.title,u);
+}));
  document.querySelectorAll('#mon-items [data-mon-hide]').forEach(b=>b.addEventListener('click',()=>{const u=arr[Number(b.dataset.monHide)].url;localStorage.setItem('observatorio_mon_hidden',JSON.stringify([...new Set([...hidden,u])]));show()}));
  document.querySelectorAll('#mon-items [data-mon-watch]').forEach(b=>b.addEventListener('click',()=>{const x=arr[Number(b.dataset.monWatch)];window.requestEditionWatch(x.title,x.url)}));
  const ev=(monitor.events||[]).slice(0,30);
@@ -301,7 +314,7 @@ const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,
 const read=(k)=>{try{return JSON.parse(localStorage.getItem(k)||'[]')}catch{return []}};
 const getRepo=()=>{const host=location.hostname,owner=host.match(/^([a-z0-9-]+)\.github\.io$/i)?.[1];if(!owner)return null;return {owner,repo:location.pathname.split('/').filter(Boolean)[0]||owner+'.github.io'}};
 window.requestEditionWatch=(title,url)=>{
- alert('O favorito foi salvo neste navegador.\n\nPara solicitar monitoramento com alertas por e-mail, fale com o responsável pelo Observatório. Apenas os editais aprovados no sistema privado são acompanhados por e-mail. Nenhum e-mail é cadastrado automaticamente por este site público.');
+ if(typeof window.registrarAcompanhamento==='function')window.registrarAcompanhamento(title,url);
 };
 function draw(){
  const ids=read('observatorio_favs'),urls=read('observatorio_mon_favs');
@@ -387,5 +400,7 @@ async function update(){
 update();setInterval(update,120000);
 })();
 </script>
+<script src="./supabase-config.js"></script>
+<script src="./favorites.js"></script>
 </body>
 </html>
