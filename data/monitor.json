@@ -1,0 +1,304 @@
+{
+  "generated_at": "2026-10-12T14:22:30+00:00",
+  "last_success_at": "2026-10-12T14:22:30+00:00",
+  "status": "ok",
+  "checked_pages": 18,
+  "failures": [],
+  "discovered": 10,
+  "items": [
+    {
+      "title": "PRONINC 2026",
+      "org": "Finep",
+      "url": "https://www.finep.gov.br/en/e/chamada-publica/222684/1057230",
+      "relevance": {
+        "score": 61,
+        "themes": [
+          "Água e meio ambiente",
+          "Agro e fertilizantes",
+          "Economia circular",
+          "Pesquisa institucional"
+        ],
+        "level": "Média",
+        "route": "ICT ou empresa com cooperativa, conforme edital"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Coopera Mais Brasil",
+      "org": "Finep",
+      "url": "https://www.finep.gov.br/w/finep-disponibiliza-r-220-milh%C3%B5es-para-inova%C3%A7%C3%A3o-em-cooperativas-de-agricultura-familiar",
+      "relevance": {
+        "score": 51,
+        "themes": [
+          "Agro e fertilizantes",
+          "Economia circular",
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Média",
+        "route": "ICT ou empresa com cooperativa, conforme edital"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Economia Circular",
+      "org": "Finep",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/777",
+      "relevance": {
+        "score": 41,
+        "themes": [
+          "Economia circular",
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Média",
+        "route": "ICT ou empresa com cooperativa, conforme edital"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Subvenção Regional",
+      "org": "Finep",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/776",
+      "relevance": {
+        "score": 37,
+        "themes": [
+          "Agro e fertilizantes",
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Média",
+        "route": "ICT ou empresa com cooperativa, conforme edital"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Agroindústria Sustentável",
+      "org": "Finep",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/774",
+      "relevance": {
+        "score": 37,
+        "themes": [
+          "Agro e fertilizantes",
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Média",
+        "route": "ICT ou empresa com cooperativa, conforme edital"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Transformação Mineral",
+      "org": "Finep",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/771",
+      "relevance": {
+        "score": 29,
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Baixa",
+        "route": "ICT ou empresa com cooperativa, conforme edital"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL 002/2026 – PROGRAMA DE APOIO A PROJETOS DE EXTENSÃO (PAPE) DA FAPEPI",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-002-2026-programa-de-apoio-a-projetos-de-extensao-pape-da-fapepi/",
+      "relevance": {
+        "score": 28,
+        "themes": [
+          "Agro e fertilizantes",
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Centelha 3 Piauí",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-006-2025-programa-centelha-3-piaui/",
+      "relevance": {
+        "score": 25,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Tecnova 3 Piauí",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/selecao-publica-fapepi-finep-mcti-edital-n-01-2024-programa-tecnova3-piaui/",
+      "relevance": {
+        "score": 23,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "conhecido",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL Nº 005/2026 – PROGRAMA DE APOIO À PÓS-GRADUAÇÃO STRICTO SENSU (PAPG) – BOLSAS DE MESTRADO E DOUTORADO",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-005-2026-programa-de-apoio-a-pos-graduacao-stricto-sensu-papg-bolsas-de-mestrado-e-doutorado/",
+      "relevance": {
+        "score": 20,
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL Nº 003/2026 – PROGRAMA DE APOIO À FIXAÇÃO DE DOUTORES NO BRASIL ( PROFIX-CB)",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-003-2026-programa-de-apoio-a-fixacao-de-doutores-no-brasil-profix-cb/",
+      "relevance": {
+        "score": 20,
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Chamada Pública nº 07/2025 Para Fomento de Núcleos de Inteligência Territorial (NIT)",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/chamada-publica-no-07-2025-para-fomento-de-nucleos-de-inteligencia-territorial-nit/",
+      "relevance": {
+        "score": 20,
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL DE CHAMAMENTO PÚBLICO 09/2026",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-de-chamamento-publico-09-2026-2/",
+      "relevance": {
+        "score": 14,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "Edital 008/2026 – PDPG – PARCERIAS ESTRATÉGICAS NOS ESTADOS VI – REDE DE PESQUISA E DESENVOLVIMENTO DA REGIÃO NORDESTE",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-fapepi-008-2026-pdpg-parcerias-estrategicas-nos-estados-vi-rede-de-pesquisa-e-desenvolvimento-da-regiao-nordeste/",
+      "relevance": {
+        "score": 14,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL Nº 007/2026 – PROGRAMA DE DESENVOLVIMENTO CIENTÍFICO E TECNOLÓGICO REGIONAL DO PIAUÍ (PDCTR-PI)",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-007-2026-programa-de-desenvolvimento-cientifico-e-tecnologico-regional-do-piaui-pdctr-pi/",
+      "relevance": {
+        "score": 14,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL Nº 006/2026 – PROGRAMA DE BOLSAS DE INICIAÇÃO CIENTÍFICA DA FAPEPI – PBIC",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-006-2026-programa-de-bolsas-de-iniciacao-cientifica-da-fapepi-pbic/",
+      "relevance": {
+        "score": 14,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL Nº 004/2026 – PRÊMIO FAPEPI DE POPULARIZAÇÃO DA CIÊNCIA “ARQUEÓLOGA NIÈDE GUIDON”",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-no-004-2026-premio-fapepi-de-popularizacao-da-ciencia-arqueologa-niede-guidon/",
+      "relevance": {
+        "score": 14,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    },
+    {
+      "title": "EDITAL 01/2026 – PROGRAMA DE APOIO À REALIZAÇÃO DE EVENTOS CIENTÍFICOS, DE DIVULGAÇÃO CIENTÍFICA E TECNOLÓGICA (PAP)",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-01-2026-programa-de-apoio-a-realizacao-de-eventos-cientificos-de-divulgacao-cientifica-e-tecnologica-pap/",
+      "relevance": {
+        "score": 14,
+        "themes": [
+          "Startups e inovação"
+        ],
+        "level": "Baixa",
+        "route": "Startup/empresa, conforme regras estaduais"
+      },
+      "source": "descoberto",
+      "last_seen": "2026-10-12T14:22:30+00:00"
+    }
+  ],
+  "events": [],
+  "watched_count": 0,
+  "notes": [
+    "Mudanças detectadas não comprovam retificação, prazo ou elegibilidade.",
+    "Cópia pública informativa. Dados podem estar desatualizados até a próxima sincronização."
+  ]
+}
