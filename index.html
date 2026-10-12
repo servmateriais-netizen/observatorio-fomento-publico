@@ -106,7 +106,7 @@
  <article class="surface panel portal-guide"><span class="portal-eyebrow">COMO UTILIZAR</span><h3>Da pesquisa ao acompanhamento</h3><div class="portal-guide-step"><b>01</b><div><strong>Pesquise</strong><p>Filtre chamadas por órgão, modalidade, situação ou tema.</p></div></div><div class="portal-guide-step"><b>02</b><div><strong>Favorite</strong><p>Ao marcar ☆, o edital entra na lista compartilhada do laboratório.</p></div></div><div class="portal-guide-step"><b>03</b><div><strong>Acompanhe</strong><p>O sistema verifica mudanças e envia alertas aos e-mails configurados.</p></div></div><p class="portal-legal">A triagem automática não substitui a leitura dos documentos oficiais.</p></article>
 </div>
 </section>
-<section id="page-opportunities" class="section"><div class="sectionhead"><div><div class="eyebrow mutedtitle">Base comparativa</div><h2>Catálogo de oportunidades</h2><p>Pesquise, filtre, marque favoritos e abra cada edital para ver público, exigências, valores e fontes.</p></div></div><div class="controls"><label class="search"><input id="search-input" type="search" placeholder="Pesquisar edital, público ou aplicação..." aria-label="Pesquisar editais"></label><select id="filter-type" aria-label="Filtrar por modalidade"><option value="all">Todas as modalidades</option><option value="ict">Pesquisa / ICT</option><option value="business">Empresa / startup</option></select><select id="filter-status" aria-label="Filtrar por prazo"><option value="all">Em andamento (padrão)</option><option value="open">Prazo futuro</option><option value="restricted">Restrito / condicionado</option><option value="closed">Histórico encerrado</option><option value="saved">Favoritos ★</option></select><span id="filter-count" class="filtercount">—</span></div>
+<section id="page-opportunities" class="section"><div class="sectionhead"><div><div class="eyebrow mutedtitle">Base comparativa</div><h2>Catálogo de oportunidades</h2><p>Pesquise, filtre, marque favoritos e abra cada edital para ver público, exigências, valores e fontes.</p></div></div><div class="controls"><label class="search"><input id="search-input" type="search" placeholder="Pesquisar edital, público ou aplicação..." aria-label="Pesquisar editais"></label><select id="filter-type" aria-label="Filtrar por modalidade"><option value="all">Todas as modalidades</option><option value="ict">Pesquisa / ICT</option><option value="business">Empresa / startup</option></select><select id="filter-status" aria-label="Filtrar por prazo"><option value="all">Todos os editais (10)</option><option value="open">Prazo futuro</option><option value="restricted">Restrito / condicionado</option><option value="closed">Histórico encerrado</option><option value="saved">Favoritos ★</option></select><span id="filter-count" class="filtercount">—</span></div>
 <div class="catalog-tools"><label><input id="show-archive" type="checkbox">Exibir editais vencidos no catálogo</label><button id="reset-hidden" class="subtle-button" type="button">Restaurar ocultados</button><button id="jump-favorites" class="subtle-button" type="button">★ Meus favoritos</button></div>
 <div class="archive-info">Por padrão, editais encerrados pela data informada ficam no histórico. Você pode ocultar individualmente qualquer item, sem apagá-lo da base, e restaurá-lo depois. As datas são estimativas do catálogo e podem ser modificadas por retificações.</div>
 <div id="cards" class="cards"></div></section>
@@ -227,16 +227,16 @@ document.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click',(
 document.getElementById('mobile-nav').addEventListener('change',e=>jump(e.target.value));
 function renderCards(){
  const q=document.getElementById('search-input').value.trim().toLocaleLowerCase('pt-BR'),type=document.getElementById('filter-type').value,status=document.getElementById('filter-status').value,archive=document.getElementById('show-archive').checked;
- const list=calls.filter(c=>!hiddenCalls.includes(c.id)&&(type==='all'||c.type===type)&&(status==='saved'?favs.includes(c.id):status==='closed'?c.status==='closed'||expired(c):status==='open'?c.status==='open'&&!expired(c):status==='restricted'?c.status==='restricted'&&!expired(c):archive||favs.includes(c.id)||(!(c.status==='closed'||expired(c))))&&[c.name,c.summary,c.category,c.public,c.applications.join(' ')].join(' ').toLocaleLowerCase('pt-BR').includes(q));
+ const list=calls.filter(c=>!hiddenCalls.includes(c.id)&&(type==='all'||c.type===type)&&(status==='saved'?window.isSharedFavorite?.(c.source):status==='closed'?c.status==='closed'||expired(c):status==='open'?c.status==='open'&&!expired(c):status==='restricted'?c.status==='restricted'&&!expired(c):true)&&[c.name,c.summary,c.category,c.public,c.applications.join(' ')].join(' ').toLocaleLowerCase('pt-BR').includes(q));
  document.getElementById('filter-count').textContent=list.length+' resultado'+(list.length!==1?'s':'');
- document.getElementById('cards').innerHTML=list.map(c=>`<article class="callcard"><div class="cardhead"><div class="pills">${statush(c)}${c.featured?'<span class="pill">Destaque</span>':''}</div><button class="star ${favs.includes(c.id)?'faved':''}" data-fav="${c.id}" aria-label="${favs.includes(c.id)?'Remover dos':'Adicionar aos'} favoritos" title="${favs.includes(c.id)?'Remover favorito':'Favoritar para acompanhar'}">${favs.includes(c.id)?'★':'☆'}</button></div><div class="cardcat">${safe(c.category)}</div><h3>${safe(c.name)}</h3><p>${safe(c.summary)}</p><div class="row spread" style="align-items:end"><div><small class="muted">Recursos totais do edital</small><div class="money">${safe(c.budgetShort)}</div></div><div style="text-align:right"><small class="muted">Por proposta</small><div style="font-size:11px;font-weight:750;max-width:200px">${safe(c.per)}</div></div></div><div class="cardmetas"><span>Prazo: <strong>${dateBR(c.date)}</strong>${c.time?' · '+c.time:''}</span><span>${c.type==='ict'?'ICT / instituição':'Empresa / startup'}</span></div><div class="cardbuttons"><button class="linkbtn" data-detail="${c.id}">Explorar edital ↗</button><button class="subtle-button" data-hide="${c.id}">Ocultar</button>${favs.includes(c.id)?`<button class="interest-btn" data-request="${c.id}">✉ Alertar retificação</button>`:''}<a href="${c.source}" target="_blank" rel="noopener noreferrer" style="font-size:11px">Fonte oficial</a></div></article>`).join('')||'<div class="empty">Nenhum edital neste filtro. Consulte o histórico ou restaure os ocultados.</div>';
+ document.getElementById('cards').innerHTML=list.map(c=>`<article class="callcard"><div class="cardhead"><div class="pills">${statush(c)}${c.featured?'<span class="pill">Destaque</span>':''}</div><button class="star ${window.isSharedFavorite?.(c.source)?'faved':''}" data-fav="${c.id}" aria-label="${window.isSharedFavorite?.(c.source)?'Remover dos':'Adicionar aos'} favoritos" title="${window.isSharedFavorite?.(c.source)?'Remover favorito':'Favoritar para acompanhar'}">${window.isSharedFavorite?.(c.source)?'★':'☆'}</button></div><div class="cardcat">${safe(c.category)}</div><h3>${safe(c.name)}</h3><p>${safe(c.summary)}</p><div class="row spread" style="align-items:end"><div><small class="muted">Recursos totais do edital</small><div class="money">${safe(c.budgetShort)}</div></div><div style="text-align:right"><small class="muted">Por proposta</small><div style="font-size:11px;font-weight:750;max-width:200px">${safe(c.per)}</div></div></div><div class="cardmetas"><span>Prazo: <strong>${dateBR(c.date)}</strong>${c.time?' · '+c.time:''}</span><span>${c.type==='ict'?'ICT / instituição':'Empresa / startup'}</span></div><div class="cardbuttons"><button class="linkbtn" data-detail="${c.id}">Explorar edital ↗</button><button class="subtle-button" data-hide="${c.id}">Ocultar</button><a href="${c.source}" target="_blank" rel="noopener noreferrer" style="font-size:11px">Fonte oficial</a></div></article>`).join('')||'<div class="empty">Nenhum edital neste filtro. Consulte o histórico ou restaure os ocultados.</div>';
  document.querySelectorAll('#cards [data-detail]').forEach(b=>b.addEventListener('click',()=>openDetail(b.dataset.detail)));
- document.querySelectorAll('#cards [data-fav]').forEach(b=>b.addEventListener('click',()=>{
- const id=b.dataset.fav,adding=!favs.includes(id);
- favs=adding?[...favs,id]:favs.filter(x=>x!==id);
- storeWrite('observatorio_favs',favs);renderCards();
- window.dispatchEvent(new Event('observatorio-favorites-changed'));
- if(adding){const item=calls.find(x=>x.id===id);if(item)window.registrarAcompanhamento?.(item.name,item.source)}
+ document.querySelectorAll('#cards [data-fav]').forEach(b=>b.addEventListener('click',async()=>{
+ const item=calls.find(c=>c.id===b.dataset.fav);
+ if(!item || !window.alternarFavorito)return;
+ b.disabled=true;
+ await window.alternarFavorito(item.name,item.source);
+ b.disabled=false;
 }));
  document.querySelectorAll('#cards [data-hide]').forEach(b=>b.addEventListener('click',()=>{hiddenCalls=[...new Set([...hiddenCalls,b.dataset.hide])];storeWrite('observatorio_hidden_calls',hiddenCalls);renderCards()}));
  document.querySelectorAll('#cards [data-request]').forEach(b=>b.addEventListener('click',()=>{const c=calls.find(x=>x.id===b.dataset.request);if(c)window.requestEditionWatch(c.name,c.source)}));
@@ -280,7 +280,7 @@ function show(){
  const q=document.getElementById('mon-search').value.trim().toLocaleLowerCase('pt-BR');
  const score=document.getElementById('mon-score').value;
  const theme=document.getElementById('mon-theme').value;
- const hidden=JSON.parse(localStorage.getItem('observatorio_mon_hidden')||'[]');const star=JSON.parse(localStorage.getItem('observatorio_mon_favs')||'[]');const displayOld=document.getElementById('mon-include-all').checked;const arr=(monitor.items||[]).filter(x=>{
+ const hidden=JSON.parse(localStorage.getItem('observatorio_mon_hidden')||'[]');const star=(window.getSharedFavorites?.()||[]).map(x=>x.url);const displayOld=document.getElementById('mon-include-all').checked;const arr=(monitor.items||[]).filter(x=>{
   const r=x.relevance||{},themes=r.themes||[];
   return !hidden.includes(x.url) && (displayOld||star.includes(x.url)||r.score>=35) && (score==='all'||(score==='high'&&r.score>=65)||(score==='medium'&&r.score>=35)) && (theme==='all'||themes.includes(theme)) && [x.title,x.org,...themes].join(' ').toLocaleLowerCase('pt-BR').includes(q);
  });
@@ -288,12 +288,12 @@ function show(){
   const r=x.relevance||{};const cls=r.score>=65?'':r.score>=35?'mid':'low';
   return `<article class="mon-card"><div class="mon-pills"><span class="mon-tag mon-rank ${cls}">${esc(r.level)} aderência · ${esc(r.score)}/100</span><span class="mon-tag">${esc(x.org)}</span></div><div class="row spread"><h3>${esc(x.title)}</h3><button class="star ${star.includes(x.url)?'faved':''}" data-mon-fav="${arr.indexOf(x)}" aria-label="Favoritar publicação">${star.includes(x.url)?'★':'☆'}</button></div><p><strong>Temas:</strong> ${esc((r.themes||[]).join(', ')||'Análise preliminar')}</p><p><strong>Possível proponente:</strong> ${esc(r.route||'A confirmar')}</p><div class="mon-notice">O monitoramento <strong>não confirma inscrição aberta</strong>, prazo ou elegibilidade. Consulte o edital e suas retificações.</div><div class="retif-actions"><button class="subtle-button" data-mon-hide="${arr.indexOf(x)}">Ocultar</button>${star.includes(x.url)?`<button class="interest-btn" data-mon-watch="${arr.indexOf(x)}">✉ Alertar retificação</button>`:''}<a class="mon-link" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">Abrir fonte oficial ↗</a></div></article>`;
  }).join(''):'<div class="mon-empty">Nenhuma publicação atende aos filtros ou a coleta ainda não foi executada.</div>';
- document.querySelectorAll('#mon-items [data-mon-fav]').forEach(b=>b.addEventListener('click',()=>{
- const item=arr[Number(b.dataset.monFav)],u=item.url,s=new Set(star),adding=!s.has(u);
- if(adding)s.add(u);else s.delete(u);
- localStorage.setItem('observatorio_mon_favs',JSON.stringify([...s]));
- show();window.dispatchEvent(new Event('observatorio-favorites-changed'));
- if(adding)window.registrarAcompanhamento?.(item.title,u);
+ document.querySelectorAll('#mon-items [data-mon-fav]').forEach(b=>b.addEventListener('click',async()=>{
+ const item=arr[Number(b.dataset.monFav)];
+ if(!item||!window.alternarFavorito)return;
+ b.disabled=true;
+ await window.alternarFavorito(item.title,item.url);
+ b.disabled=false;
 }));
  document.querySelectorAll('#mon-items [data-mon-hide]').forEach(b=>b.addEventListener('click',()=>{const u=arr[Number(b.dataset.monHide)].url;localStorage.setItem('observatorio_mon_hidden',JSON.stringify([...new Set([...hidden,u])]));show()}));
  document.querySelectorAll('#mon-items [data-mon-watch]').forEach(b=>b.addEventListener('click',()=>{const x=arr[Number(b.dataset.monWatch)];window.requestEditionWatch(x.title,x.url)}));
@@ -302,6 +302,7 @@ function show(){
 }
 document.getElementById('mon-include-all').addEventListener('change',show);document.getElementById('mon-restore').addEventListener('click',()=>{localStorage.setItem('observatorio_mon_hidden','[]');show()});window.addEventListener('observatorio-favorites-changed',show);
 ['mon-search','mon-score','mon-theme'].forEach(id=>document.getElementById(id).addEventListener(id==='mon-search'?'input':'change',show));
+window.addEventListener('observatorio-shared-changed',show);
 window.renderRetifMonitor=()=>monitor;fetch('./data/monitor.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Arquivo não disponível');return r.json()}).then(data=>{monitor=data;show();window.dispatchEvent(new Event('observatorio-monitor-updated'))}).catch(()=>{document.getElementById('mon-status').textContent='Não foi possível carregar os dados automáticos. Para abrir localmente, use um servidor HTTP; no GitHub Pages, confira a rotina de atualização.';show()});
 })();
 </script>
@@ -317,12 +318,16 @@ window.requestEditionWatch=(title,url)=>{
  if(typeof window.registrarAcompanhamento==='function')window.registrarAcompanhamento(title,url);
 };
 function draw(){
- const ids=read('observatorio_favs'),urls=read('observatorio_mon_favs');
- const list=ids.map(id=>window.observatorioCalls?.find(x=>x.id===id)).filter(Boolean);
- const dyn=(window.renderRetifMonitor?.()?.items||[]).filter(x=>urls.includes(x.url)).map(x=>({name:x.title,source:x.url}));
- const combined=[...list.map(x=>({name:x.name,source:x.source})),...dyn];
- $('watched-favorites').innerHTML=combined.length?combined.map((x,i)=>`<div class="retif-item"><h3>★ ${esc(x.name)}</h3><p>${esc(x.source)}</p><div class="retif-actions"><button class="interest-btn" data-retif-watch="${i}">✉ Solicitar alerta por e-mail</button><a href="${esc(x.source)}" target="_blank" rel="noopener noreferrer">Edital oficial ↗</a></div></div>`).join(''):'<div class="mon-empty">Você ainda não favoritou nenhum edital. Marque ★ no catálogo ou no radar de monitoramento.</div>';
- $('watched-favorites').querySelectorAll('[data-retif-watch]').forEach(b=>b.addEventListener('click',()=>{let x=combined[Number(b.dataset.retifWatch)];window.requestEditionWatch(x.name,x.source)}));
+ const combined=(window.getSharedFavorites?.()||[]).map(x=>({name:x.titulo,source:x.url}));
+ $('watched-favorites').innerHTML=combined.length?combined.map((x,i)=>`<div class="retif-item"><h3>★ ${esc(x.name)}</h3><p>${esc(x.source)}</p><div class="retif-actions"><button type="button" class="interest-btn" data-retif-remove="${i}">☆ Desfavoritar</button><a href="${esc(x.source)}" target="_blank" rel="noopener noreferrer">Edital oficial ↗</a></div></div>`).join(''):'<div class="mon-empty">Ainda não existem editais nos favoritos coletivos. Marque ☆ no catálogo ou radar.</div>';
+ $('watched-favorites').querySelectorAll('[data-retif-remove]').forEach(b=>b.addEventListener('click',async()=>{
+ const item=combined[Number(b.dataset.retifRemove)];
+ if(!item)return;
+ b.disabled=true;
+ await window.removerAcompanhamento?.(item.source);
+ b.disabled=false;
+ }));
+
  const ev=(window.renderRetifMonitor?.()?.events||[]).filter(e=>/alter|retific|errata|adendo|pdf|prorrog|cronograma/i.test(e.kind||''));
  const all=$('retif-filter').value==='all';
  const filt=all?ev:ev.filter(e=>combined.some(c=>c.source===e.url||e.url.startsWith(c.source)||(e.title||'').toLowerCase().includes(c.name.toLowerCase().slice(0,12))));
@@ -330,8 +335,14 @@ function draw(){
  $('retif-events').innerHTML=filt.length?filt.slice(0,60).map(e=>`<article class="retif-item"><div class="retif-date">Detectado: ${esc(dt(e.detected_at))}</div><h3>${esc(e.title)}</h3><p><strong>${esc(e.kind)}</strong> · ${esc((e.relevance||{}).level||'A avaliar')} aderência</p><p>Alteração técnica detectada. Verifique se existe retificação oficial e se o prazo mudou.</p><a target="_blank" rel="noopener noreferrer" href="${esc(e.url)}">Consultar publicação oficial ↗</a></article>`).join(''):'<div class="mon-empty">Nenhuma possível retificação detectada para este filtro. Isso não garante ausência de alterações oficiais; a coleta depende da execução programada.</div>';
 }
 $('retif-filter').addEventListener('change',draw);
-$('copy-watched').addEventListener('click',async()=>{const ids=read('observatorio_favs'),urls=read('observatorio_mon_favs');const names=ids.map(id=>window.observatorioCalls?.find(x=>x.id===id)).filter(Boolean).map(x=>x.name+' — '+x.source);const dyn=(window.renderRetifMonitor?.()?.items||[]).filter(x=>urls.includes(x.url)).map(x=>x.title+' — '+x.url);const text=[...names,...dyn].join('\n');if(!text){$('copy-feedback').textContent='Nenhum favorito';return;}try{await navigator.clipboard.writeText(text);$('copy-feedback').textContent='Copiado'}catch{$('copy-feedback').textContent='Copie os favoritos manualmente'}});
-window.addEventListener('observatorio-favorites-changed',draw);window.addEventListener('observatorio-monitor-updated',draw);window.addEventListener('storage',draw);draw();
+$('copy-watched').addEventListener('click',async()=>{
+ const fav=(window.getSharedFavorites?.()||[]);
+ const text=fav.map(x=>x.titulo+' — '+x.url).join('\n');
+ if(!text){$('copy-feedback').textContent='Nenhum favorito';return}
+ try{await navigator.clipboard.writeText(text);$('copy-feedback').textContent='Copiado'}
+ catch{$('copy-feedback').textContent='Não foi possível copiar'}
+});
+window.addEventListener('observatorio-favorites-changed',draw);window.addEventListener('observatorio-shared-changed',()=>{renderCards();});window.addEventListener('observatorio-monitor-updated',draw);window.addEventListener('observatorio-shared-changed',draw);window.addEventListener('storage',draw);draw();
 })();
 </script>
 
