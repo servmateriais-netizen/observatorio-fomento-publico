@@ -73,7 +73,7 @@
   <button class="navitem active" data-page="overview"><svg fill="none" stroke-width="1.8"><use href="#icon-grid" /></svg>Visão geral</button>
   <button class="navitem" data-page="opportunities"><svg fill="none" stroke-width="1.8"><use href="#icon-brief" /></svg>Editais <span class="number">10</span></button>
   <button class="navitem" data-page="monitor"><svg fill="none" stroke-width="1.8"><use href="#icon-chart" /></svg>Monitoramento <span class="number">NOVO</span></button>
-  <button class="navitem" data-page="retifications"><svg fill="none" stroke-width="1.8"><use href="#icon-book" /></svg>Favoritos e alertas <span class="number">★</span></button>
+  <button class="navitem" data-page="retifications"><svg fill="none" stroke-width="1.8"><use href="#icon-book" /></svg>Favoritos e notificações <span class="number">★</span></button>
   <button class="navitem" data-page="calendar"><svg fill="none" stroke-width="1.8"><use href="#icon-calendar" /></svg>Agenda de prazos</button>
   <button class="navitem" data-page="proninc"><svg fill="none" stroke-width="1.8"><use href="#icon-book" /></svg>Estudo de caso</button>
   <button class="navitem" data-page="matching"><svg fill="none" stroke-width="1.8"><use href="#icon-chart" /></svg>Aderência dos projetos</button>
@@ -81,9 +81,22 @@
   <button class="navitem" data-page="sources"><svg fill="none" stroke-width="1.8"><use href="#icon-book" /></svg>Fontes oficiais</button>
   <div class="sidefoot"><strong>Portal de consulta em fomento</strong><br>As oportunidades são pré-analisadas automaticamente. Confirme sempre editais, datas, anexos e condições nas fontes oficiais.<br><br><strong>Horário:</strong> Brasília (UTC−3)</div>
 </aside>
-<div class="mobile-bar"><b>✳ Observatório de Fomento</b><select aria-label="Selecionar seção" id="mobile-nav"><option value="overview">Visão geral</option><option value="opportunities">Editais</option><option value="monitor">Monitoramento</option><option value="retifications">Favoritos e alertas</option><option value="calendar">Agenda</option><option value="proninc">Estudo de caso</option><option value="matching">Aderência</option><option value="action">Plano de ação</option><option value="sources">Fontes</option></select></div>
+<div class="mobile-bar"><b>✳ Observatório de Fomento</b><select aria-label="Selecionar seção" id="mobile-nav"><option value="overview">Visão geral</option><option value="opportunities">Editais</option><option value="monitor">Monitoramento</option><option value="retifications">Favoritos e notificações</option><option value="calendar">Agenda</option><option value="proninc">Estudo de caso</option><option value="matching">Aderência</option><option value="action">Plano de ação</option><option value="sources">Fontes</option></select></div>
 <main class="main">
-<div class="topbar"><div class="breadcrumbs">Pesquisa aplicada <span style="margin:0 7px">/</span> Inovação e fomento <span style="margin:0 7px">/</span> Brasil • Piauí</div><div class="topactions"><button id="export-csv" class="btn" title="Exportar lista de editais como arquivo CSV"><svg fill="none" stroke="currentColor" stroke-width="1.8"><use href="#icon-download" /></svg>CSV</button><button id="print" class="btn primary" title="Imprimir ou salvar como PDF"><svg fill="none" stroke="currentColor" stroke-width="1.8"><use href="#icon-print" /></svg>Imprimir / PDF</button></div></div>
+<div class="topbar"><div class="breadcrumbs">Pesquisa aplicada <span style="margin:0 7px">/</span> Inovação e fomento <span style="margin:0 7px">/</span> Brasil • Piauí</div><div class="topactions">
+<div class="app-notify-area" id="app-notify-area">
+  <button type="button" class="app-notify-button" id="app-notify-toggle" aria-label="Abrir notificações do Observatório" aria-controls="app-notify-panel" aria-expanded="false" title="Notificações do Observatório">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+    <span id="app-notify-count" class="app-notify-count" hidden>0</span><span class="app-notify-label">Notificações</span>
+  </button>
+  <div id="app-notify-panel" class="app-notify-panel" hidden role="region" aria-label="Últimas notificações">
+    <div class="app-notify-head"><div><span class="portal-eyebrow">ATUALIZAÇÕES DO OBSERVATÓRIO</span><h3>Notificações</h3><p id="app-notify-message">Consultando novidades...</p></div>
+      <button id="app-notify-mark-read" type="button" class="subtle-button">Marcar todas como lidas</button></div>
+    <div id="app-notify-preview" class="app-notify-preview"><div class="portal-empty">Carregando...</div></div>
+    <div class="app-notify-footer"><span id="app-notify-checked">Aguardando coleta</span><button id="app-notify-all" type="button" class="linkbtn">Ver central completa →</button></div>
+  </div>
+</div>
+<button id="export-csv" class="btn" title="Exportar lista de editais como arquivo CSV"><svg fill="none" stroke="currentColor" stroke-width="1.8"><use href="#icon-download" /></svg>CSV</button><button id="print" class="btn primary" title="Imprimir ou salvar como PDF"><svg fill="none" stroke="currentColor" stroke-width="1.8"><use href="#icon-print" /></svg>Imprimir / PDF</button></div></div>
 <header class="hero"><div class="hero-content"><div class="eyebrow">Painel interativo de inteligência de editais</div><h1>Seu portal de editais e oportunidades</h1><p>Pesquise oportunidades, compare requisitos, favorite editais e acompanhe atualizações da Finep e FAPEPI em um só lugar.</p><div class="hero-bottom"><span class="hero-chip">Pesquisa e ICTs</span><span class="hero-chip">Startups e empresas</span><span class="hero-chip">Tecnologias ambientais e agro</span></div></div></header>
 <div class="stamp">PORTAL DE CONSULTA · FONTES FINEP E FAPEPI <span class="portal-stamp-note">Última coleta: <strong id="portal-updated">Aguardando consulta</strong></span></div>
 <div class="metricgrid portal-metrics">
@@ -103,7 +116,7 @@
 <div id="overview-radar" class="portal-radar-grid"><div class="portal-empty">Consultando as fontes monitoradas...</div></div>
 <div class="portal-bottom-grid">
  <article class="surface panel"><div class="portal-panel-head"><div><span class="portal-eyebrow">ALTERAÇÕES RECENTES</span><h3>Novidades e possíveis retificações</h3></div><button class="linkbtn" data-jump="retifications">Ver histórico →</button></div><div id="overview-events" class="portal-event-list"><div class="portal-empty">Carregando histórico...</div></div></article>
- <article class="surface panel portal-guide"><span class="portal-eyebrow">COMO UTILIZAR</span><h3>Da pesquisa ao acompanhamento</h3><div class="portal-guide-step"><b>01</b><div><strong>Pesquise</strong><p>Filtre chamadas por órgão, modalidade, situação ou tema.</p></div></div><div class="portal-guide-step"><b>02</b><div><strong>Favorite</strong><p>Ao marcar ☆, o edital entra na lista compartilhada do laboratório.</p></div></div><div class="portal-guide-step"><b>03</b><div><strong>Acompanhe</strong><p>O sistema verifica mudanças e envia alertas aos e-mails configurados.</p></div></div><p class="portal-legal">A triagem automática não substitui a leitura dos documentos oficiais.</p></article>
+ <article class="surface panel portal-guide"><span class="portal-eyebrow">COMO UTILIZAR</span><h3>Da pesquisa ao acompanhamento</h3><div class="portal-guide-step"><b>01</b><div><strong>Pesquise</strong><p>Filtre chamadas por órgão, modalidade, situação ou tema.</p></div></div><div class="portal-guide-step"><b>02</b><div><strong>Favorite</strong><p>Ao marcar ☆, o edital entra na lista compartilhada do laboratório.</p></div></div><div class="portal-guide-step"><b>03</b><div><strong>Acompanhe</strong><p>O site mostra avisos no sino e na central quando o monitoramento detecta mudanças.</p></div></div><p class="portal-legal">A triagem automática não substitui a leitura dos documentos oficiais.</p></article>
 </div>
 </section>
 <section id="page-opportunities" class="section"><div class="sectionhead"><div><div class="eyebrow mutedtitle">Base comparativa</div><h2>Catálogo de oportunidades</h2><p>Pesquise, filtre, marque favoritos e abra cada edital para ver público, exigências, valores e fontes.</p></div></div><div class="controls"><label class="search"><input id="search-input" type="search" placeholder="Pesquisar edital, público ou aplicação..." aria-label="Pesquisar editais"></label><select id="filter-type" aria-label="Filtrar por modalidade"><option value="all">Todas as modalidades</option><option value="ict">Pesquisa / ICT</option><option value="business">Empresa / startup</option></select><select id="filter-status" aria-label="Filtrar por prazo"><option value="all">Todos os editais de referência</option><option value="open">Prazo futuro</option><option value="restricted">Restrito / condicionado</option><option value="closed">Histórico encerrado</option><option value="saved">Favoritos ★</option></select><span id="filter-count" class="filtercount">—</span></div>
@@ -143,20 +156,33 @@
 </section>
 
 <section id="page-retifications" class="section">
- <div class="sectionhead"><div><div class="eyebrow mutedtitle">Acompanhamento coletivo</div><h2>Favoritos e notificações</h2><p>Os editais marcados com ★ são monitorados em conjunto. A central abaixo informa a última coleta disponível, possíveis alterações e o estado verificado dos e-mails. <strong>Uma alteração detectada ainda precisa de confirmação na fonte oficial.</strong></p></div></div>
+ <div class="sectionhead"><div><div class="eyebrow mutedtitle">Acompanhamento coletivo</div><h2>Favoritos e notificações</h2><p>Os editais marcados com ★ são monitorados em conjunto. A central reúne a última coleta, o histórico de possíveis alterações e os avisos que podem ser consultados diretamente no site. <strong>Uma alteração detectada ainda precisa de confirmação na fonte oficial.</strong></p></div></div>
  <div class="notification-center surface panel" aria-label="Central de notificações do laboratório">
    <div class="notification-head"><div><span class="portal-eyebrow">ACOMPANHAMENTO AUTOMÁTICO</span><h3>Situação dos alertas</h3><p id="notify-explanation">Consultando os registros disponíveis do monitoramento...</p></div><button id="notify-refresh" type="button" class="subtle-button">↻ Atualizar informações</button></div>
    <div class="notification-metrics">
      <div class="notification-metric"><span>Editais acompanhados</span><strong id="notify-watched-count">—</strong><small>Favoritos compartilhados</small></div>
      <div class="notification-metric"><span>Última coleta publicada</span><strong id="notify-last-scan">—</strong><small>Horário de Brasília</small></div>
      <div class="notification-metric"><span>Alterações registradas</span><strong id="notify-event-count">—</strong><small>Histórico das fontes</small></div>
-     <div class="notification-metric"><span>Alertas por e-mail</span><strong id="notify-mail-status">Consultando...</strong><small id="notify-last-mail">Último envio: sem confirmação</small></div>
+     <div class="notification-metric"><span>Não lidas</span><strong id="notify-unread-count">—</strong><small id="notify-feed-status">Somente no portal</small></div>
    </div>
-   <div class="notification-detail" id="notify-detail" role="status" aria-live="polite">O acompanhamento ocorre nas execuções programadas; atualizar esta tela não inicia uma nova coleta.</div>
+   <div class="notification-detail" id="notify-detail" role="status" aria-live="polite">Os avisos são atualizados automaticamente nas coletas programadas.</div>
+   <div class="app-notify-history">
+     <div class="row spread" style="gap:12px;flex-wrap:wrap">
+       <h3>Histórico de notificações</h3>
+       <div class="row" style="gap:8px;flex-wrap:wrap">
+         <select id="notify-filter" aria-label="Filtrar notificações">
+           <option value="all">Todas as novidades</option>
+           <option value="favorites">Editais acompanhados</option>
+         </select>
+         <button id="notify-mark-read" type="button" class="subtle-button">Marcar todas como lidas</button>
+       </div>
+     </div>
+     <div id="notifications-feed" class="site-notification-list"><div class="portal-empty">Aguardando carregamento...</div></div>
+   </div>
  </div>
  <div class="split">
    <div class="surface panel"><h3>★ Favoritos coletivos</h3><p class="muted" style="font-size:12px">Os favoritos são compartilhados: marcar ou desmarcar a estrela atualiza o catálogo, o radar e esta página. A remoção também atualiza a lista coletiva do laboratório.</p><div id="watched-favorites" class="retif-list"></div></div>
-   <div class="surface panel"><h3>Como funcionam os alertas?</h3><p class="muted" style="font-size:12px">1. Marque ☆ para incluir o edital nos favoritos coletivos.<br>2. A próxima execução do monitoramento verifica possíveis alterações na fonte oficial.<br>3. Quando houver alteração relevante, o serviço de e-mail tenta notificar os endereços do laboratório.</p><div class="retif-note">Favoritar <b>não envia e-mail imediatamente</b> e não comprova que ocorreu uma retificação. O aviso depende de uma mudança detectada, da rotina automática e do serviço de envio. O site não cadastra e-mails dos visitantes: a lista do laboratório fica protegida.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
+   <div class="surface panel"><h3>Como funcionam os alertas?</h3><p class="muted" style="font-size:12px">1. Marque ☆ no edital para incluí-lo nos favoritos coletivos.<br>2. As coletas automáticas consultam as fontes oficiais e registram novidades.<br>3. Abra o sino na parte superior ou esta central para visualizar os avisos. Não há envio de e-mail.</p><div class="retif-note">As notificações aparecem <b>dentro do Observatório</b>, quando uma coleta detecta uma possível atualização. Marcar como lida fica salvo apenas neste navegador. O site não faz notificações push fora da página e não envia e-mails.</div><div style="margin-top:13px" class="row"><button id="copy-watched" class="subtle-button" type="button">Copiar meus favoritos</button><span id="copy-feedback" class="muted" style="font-size:11px"></span></div></div>
  </div>
  <div class="surface panel" style="margin-top:16px"><div class="row spread"><h3 style="margin-bottom:0">Histórico de possíveis retificações</h3><select id="retif-filter" aria-label="Filtrar retificações" style="border:1px solid var(--border);padding:9px;border-radius:9px"><option value="favorites">Somente favoritos</option><option value="all">Todas as alterações</option></select></div><p class="muted" style="font-size:12px;margin-top:10px">Datas em vermelho correspondem à detecção pelo robô, não necessariamente à publicação oficial. Verifique o edital vigente, o documento e seus anexos.</p><div id="retif-events" class="retif-list"></div></div>
 </section>
@@ -186,11 +212,11 @@
       <div class="connection-line"><span>GitHub Actions</span><strong id="connection-gh">Verificando conexão...</strong></div>
       <div class="connection-line"><span>Última coleta</span><strong id="connection-last">Aguardando primeira execução</strong></div>
       <div class="connection-line"><span>Fontes consultadas</span><strong id="connection-count">—</strong></div>
-      <div class="connection-line"><span>Alertas por e-mail</span><strong id="connection-email">Não configurado</strong></div>
-      <div class="connection-line"><span>Último e-mail</span><strong id="connection-lastmail">—</strong></div>
+      <div class="connection-line"><span>Avisos no portal</span><strong id="connection-email">Central de notificações</strong></div>
+      <div class="connection-line"><span>Novidades registradas</span><strong id="connection-lastmail">—</strong></div>
       <p class="connection-hint" id="connection-hint">Os dados serão exibidos após a primeira coleta publicada.</p>
       <div class="connection-actions"><button id="connection-refresh" type="button">↻ Atualizar dados</button><button id="connection-details" type="button">Ver alertas ↗</button></div>
-      <p class="connection-footer">Atualizar o painel não dispara nova coleta. As verificações automáticas ocorrem na rotina privada do GitHub.</p>
+      <p class="connection-footer">Atualizar o painel não dispara nova coleta. As verificações públicas ocorrem no GitHub Actions e publicam avisos no site.</p>
     </div>
   </div>
   <button class="connection-toggle" id="connection-toggle" type="button" aria-expanded="false" aria-controls="connection-card">
@@ -376,76 +402,85 @@ window.addEventListener('observatorio-favorites-changed',draw);window.addEventLi
 </script>
 
 <script>
-/* Diagnóstico público de saúde sem token GitHub no navegador. */
-(function(){
-'use strict';
-const $=id=>document.getElementById(id);
-const fmt=t=>{if(!t)return 'Nunca executada';const d=new Date(t);return Number.isNaN(d.getTime())?'Sem registro':new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}).format(d)};
-const widget=$('connection-widget');
-const isPages=/^[a-z0-9-]+\.github\.io$/i.test(location.hostname);
-const owner=isPages?location.hostname.split('.')[0]:null;
-const repo=isPages?(location.pathname.split('/').filter(Boolean)[0]||owner+'.github.io'):null;
-let monitor=null, mail=null, workflow=null, error=false;
-$('connection-toggle').addEventListener('click',()=>{const open=widget.classList.toggle('open');$('connection-card').hidden=!open;$('connection-toggle').setAttribute('aria-expanded',String(open))});
-$('connection-details').addEventListener('click',()=>{if(typeof jump==='function')jump('retifications');else location.hash='retifications';widget.classList.remove('open');$('connection-card').hidden=true;$('connection-toggle').setAttribute('aria-expanded','false')});
-$('connection-refresh').addEventListener('click',()=>update());
-async function getJSON(url){const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}
-function render(){
- const dot=$('connection-dot');dot.className='connection-dot';
- const now=Date.now(), run=monitor?.generated_at?new Date(monitor.generated_at).getTime():0;
- const age=run?Math.round((now-run)/3600000):Infinity;
- const active=monitor && monitor.status!=='aguardando' && age<=30;
- const mailAt=mail?.checked_at?new Date(mail.checked_at).getTime():0;
- const mailFresh=Number.isFinite(mailAt)&&mailAt>0&&(now-mailAt)<36*3600000;
- const mailVerified=mailFresh&&['enviado','sem_novidades','falha','desativado'].includes(mail?.status);
- let title='Aguardando ativação', state='warn';
- if(!isPages){title='Prévia local · não publicado';state='warn'}
- else if(!monitor||monitor.status==='aguardando'){title='Sem coleta confirmada';state='warn'}
- else if(workflow?.status==='in_progress'||workflow?.status==='queued'){title='GitHub: execução em andamento';state='busy'}
- else if(workflow?.conclusion==='failure'){title='Falha na automação';state='bad'}
- else if(age>30){title='Atualização atrasada';state='bad'}
- else if(monitor.status==='falha'){title='Falha na última coleta';state='bad'}
- else if(monitor.status==='parcial'){title='Coleta parcial · revisar fontes';state='warn'}
- else if(mail?.status==='falha'){title='Coleta OK · falha no e-mail';state='warn'}
- else if(active&&!mailVerified){title='Coleta publicada · e-mail não confirmado';state='warn'}
- else if(active){title='Coleta pública atualizada';state='ok'}
- if(error && !monitor){title=isPages?'Não foi possível verificar o monitoramento':'Prévia local · abra em servidor';state='warn'}
- dot.classList.add(state);$('connection-title').textContent=title;
- $('connection-subtitle').textContent=isPages?'GitHub Pages · Finep / FAPEPI':'Arquivo local · sem sincronização remota';
- $('connection-mode').textContent=isPages?'GitHub Pages':'Prévia local';
- const gh=workflow?((workflow.status==='completed'?(workflow.conclusion==='success'?'Último workflow concluído':'Último workflow: '+(workflow.conclusion||'concluído')):workflow.status==='in_progress'?'Executando agora':'Na fila')):(isPages?'Monitoramento executado no repositório privado':'Não conectado / não publicado');
- $('connection-gh').textContent=gh;
- $('connection-last').textContent=fmt(monitor?.generated_at);
- $('connection-count').textContent=monitor?.checked_pages != null?monitor.checked_pages+' página(s)':'Sem dados';
- const mailMap={'aguardando_sincronizacao':'Envio ainda não verificado','enviado':'Envio SMTP registrado','sem_novidades':'Ativo, sem novidades','desativado':'Envio não configurado','falha':'Falha no envio SMTP'};
- $('connection-email').textContent=mailVerified ? mailMap[mail.status] : 'Sem confirmação recente';
- $('connection-lastmail').textContent=fmt(mail?.last_sent_at);
- let reason= !isPages?'Este arquivo está em prévia. Publique no GitHub Pages e ative o workflow para obter dados reais.':
- !monitor||monitor.status==='aguardando'?'Nenhuma coleta confirmada. Confira o GitHub Actions e a configuração do repositório.':
- age>30?'O registro tem mais de 30 horas. Verifique o agendamento do GitHub Actions.':
- monitor.status==='falha'?'Nenhuma fonte pôde ser consultada nesta execução. Consulte os logs no GitHub.':
- monitor.status==='parcial'?`${monitor.failures?.length||0} fonte(s) apresentaram erro; confira o radar.`:
- 'Dados públicos disponíveis. As alterações precisam de conferência nas fontes oficiais.';
- if(!mailVerified)reason+=' Estado do envio por e-mail ainda não confirmado nesta cópia pública.';
- if(mail?.status==='falha')reason+=' O e-mail não foi entregue; verifique os Secrets de SMTP.';
- $('connection-hint').textContent=reason;
-}
-async function update(){
- $('connection-refresh').disabled=true;$('connection-refresh').textContent='Verificando...';
- const [m,e,w]=await Promise.allSettled([
-  getJSON('./data/monitor.json?t='+Date.now()),
-  getJSON('./data/email_status.json?t='+Date.now()),
-  Promise.resolve(null)
- ]);
- error=m.status==='rejected';if(m.status==='fulfilled')monitor=m.value;
- if(e.status==='fulfilled')mail=e.value;
- if(w.status==='fulfilled'&&w.value?.workflow_runs?.length)workflow=w.value.workflow_runs[0];
- render();
- if(typeof window.atualizarFavoritosColetivos==='function')window.atualizarFavoritosColetivos();
- if(typeof window.atualizarCentralAlertas==='function')window.atualizarCentralAlertas();
- $('connection-refresh').disabled=false;$('connection-refresh').textContent='↻ Atualizar dados';
-}
-update();setInterval(update,120000);
+/* Diagnóstico da coleta pública, sem referência à antiga configuração SMTP. */
+(() => {
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const widget=$('connection-widget');
+  const formatDate=value=>{
+    const d=new Date(value||'');
+    return Number.isNaN(d.getTime())?'Sem registro':
+      new Intl.DateTimeFormat('pt-BR',{
+        timeZone:'America/Sao_Paulo',
+        day:'2-digit',month:'2-digit',hour:'2-digit'
+      }).format(d);
+  };
+  let last=null,feed=null,failed=false;
+  $('connection-toggle')?.addEventListener('click',()=>{
+    const opened=widget.classList.toggle('open');
+    $('connection-card').hidden=!opened;
+    $('connection-toggle').setAttribute('aria-expanded',String(opened));
+  });
+  $('connection-details')?.addEventListener('click',()=>{
+    if(typeof window.jump==='function')window.jump('retifications');
+    else location.hash='retifications';
+    widget.classList.remove('open');
+    $('connection-card').hidden=true;
+    $('connection-toggle').setAttribute('aria-expanded','false');
+  });
+  const getJSON=async url=>{
+    const response=await fetch(url+'?d='+Date.now(),{cache:'no-store'});
+    if(!response.ok)throw Error('HTTP '+response.status);
+    return response.json();
+  };
+  function render() {
+    const status=last?.status;
+    const dt=last?.generated_at?new Date(last.generated_at).getTime():NaN;
+    const hours=Number.isFinite(dt)?(Date.now()-dt)/3600000:Infinity;
+    const dot=$('connection-dot');
+    let label='Aguardando primeira coleta',severity='warn';
+    if(failed&&!last)label='Não foi possível carregar a coleta';
+    else if(hours>36)label='Coleta atrasada · verificar GitHub';
+    else if(status==='falha')label='Falha na coleta';
+    else if(status==='parcial')label='Coleta parcial · conferir fontes';
+    else if(status==='ok'){label='Monitoramento atualizado';severity='ok';}
+    if(status==='falha'||hours>36)severity='bad';
+    dot.className='connection-dot '+severity;
+    $('connection-title').textContent=label;
+    $('connection-subtitle').textContent='GitHub Pages · Finep / FAPEPI';
+    $('connection-mode').textContent='Avisos no site';
+    $('connection-gh').textContent=
+      last?.generated_at?'Coleta publicada no repositório público':'Aguardando primeira publicação';
+    $('connection-last').textContent=formatDate(last?.generated_at);
+    $('connection-count').textContent=
+      typeof last?.checked_pages==='number'?last.checked_pages+' página(s)':'Sem dados';
+    $('connection-email').textContent='Ativados · sem e-mails';
+    $('connection-lastmail').textContent=String(feed?.events?.length||0)+' registro(s)';
+    $('connection-hint').textContent=
+      status==='parcial'
+      ? 'Algumas fontes não responderam. Os avisos disponíveis continuam consultáveis; confirme documentos oficiais.'
+      : hours>36
+      ? 'A última coleta está desatualizada. Verifique a execução programada no GitHub.'
+      : 'As notificações são consultadas no sino e na central. Atualizar a tela não inicia nova coleta.';
+  }
+  async function refresh() {
+    const button=$('connection-refresh');
+    button.disabled=true;button.textContent='Consultando...';
+    const results=await Promise.allSettled([
+      getJSON('./data/monitor.json'),
+      getJSON('./data/notifications.json')
+    ]);
+    failed=results[0].status==='rejected';
+    if(results[0].status==='fulfilled')last=results[0].value;
+    if(results[1].status==='fulfilled')feed=results[1].value;
+    render();
+    button.disabled=false;button.textContent='↻ Atualizar dados';
+    window.atualizarCentralAlertas?.();
+    window.atualizarFavoritosColetivos?.();
+  }
+  $('connection-refresh')?.addEventListener('click',refresh);
+  refresh();
+  setInterval(refresh,180000);
 })();
 </script>
 <script src="./supabase-config.js"></script>
