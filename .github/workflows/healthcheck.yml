@@ -29,5 +29,10 @@ jobs:
           node --check scripts/healthcheck.cjs
       - name: Testar identificadores de edições e modalidades
         run: node scripts/identity.test.cjs
+      - name: Verificar sintaxe do coletor público
+        run: python3 -m py_compile scripts/collect_public.py scripts/edition_identity.py
+      - name: Validar histórico de notificações
+        run: |
+          node -e "const x=require('./data/notifications.json');if(!Array.isArray(x.events))process.exit(1);console.log('Eventos no feed:',x.events.length)"
       - name: Consultar Supabase de forma segura
         run: node scripts/healthcheck.cjs
