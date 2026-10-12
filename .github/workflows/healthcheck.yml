@@ -1,0 +1,29 @@
+name: Verificar site e atividade do Supabase
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '13 0,6,12,18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar portal
+        uses: actions/checkout@v5
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validar JavaScript
+        run: |
+          node --check favorites.js
+          node --check supabase-config.js
+          node --check scripts/healthcheck.cjs
+      - name: Consultar Supabase de forma segura
+        run: node scripts/healthcheck.cjs
