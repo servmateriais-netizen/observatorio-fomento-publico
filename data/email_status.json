@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-12T14:22:30+00:00",
+  "status": "aguardando_sincronizacao",
+  "configured": null,
+  "pending_count": 0,
+  "sent_this_run": 0,
+  "last_sent_at": null,
+  "info": "Aguardando primeira sincronização após publicação."
+}
