@@ -1,0 +1,54 @@
+{
+  "sources": [
+    {
+      "key": "catalog:proninc",
+      "title": "PRONINC 2026 — Economia Solidária",
+      "url": "https://www.finep.gov.br/en/e/chamada-publica/222684/1057230"
+    },
+    {
+      "key": "catalog:coopict",
+      "title": "Coopera Mais Brasil — Tecnologias para Agricultura Familiar (ICTs)",
+      "url": "https://faleconosco.finep.gov.br/web/guest/w/finep-disponibiliza-r-220-milh%C3%B5es-para-inova%C3%A7%C3%A3o-em-cooperativas-de-agricultura-familiar"
+    },
+    {
+      "key": "catalog:coopemp",
+      "title": "Coopera Mais Brasil — Empresas",
+      "url": "https://faleconosco.finep.gov.br/web/guest/w/finep-disponibiliza-r-220-milh%C3%B5es-para-inova%C3%A7%C3%A3o-em-cooperativas-de-agricultura-familiar"
+    },
+    {
+      "key": "catalog:mineral",
+      "title": "Finep Mais Inovação — Transformação Mineral",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/771"
+    },
+    {
+      "key": "catalog:eureka",
+      "title": "EUREKA — Resiliência a Desastres (fase nacional)",
+      "url": "https://faleconosco.finep.gov.br/web/guest/w/finep-abre-chamada-de-r-7-milh%C3%B5es-da-rede-eureka-para-financiar-projetos-de-resili%C3%AAncia-a-desastres"
+    },
+    {
+      "key": "catalog:regional",
+      "title": "Finep Mais Inovação — Subvenção Econômica Regional",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/776"
+    },
+    {
+      "key": "catalog:circular",
+      "title": "Finep Mais Inovação — Economia Circular e Cidades Sustentáveis",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/777"
+    },
+    {
+      "key": "catalog:agro",
+      "title": "Finep Mais Inovação — Cadeias Agroindustriais Sustentáveis",
+      "url": "https://www.finep.gov.br/chamadas-publicas/chamadapublica/774"
+    },
+    {
+      "key": "catalog:centelha",
+      "title": "Programa Centelha 3 — Piauí",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-006-2025-programa-centelha-3-piaui/"
+    },
+    {
+      "key": "catalog:tecnova",
+      "title": "Tecnova 3 — Piauí (edição de referência)",
+      "url": "https://www.fapepi.pi.gov.br/edital/selecao-publica-fapepi-finep-mcti-edital-n-01-2024-programa-tecnova3-piaui/"
+    }
+  ]
+}
