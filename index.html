@@ -290,14 +290,14 @@ function show(){
  const q=document.getElementById('mon-search').value.trim().toLocaleLowerCase('pt-BR');
  const score=document.getElementById('mon-score').value;
  const theme=document.getElementById('mon-theme').value;
- const hidden=JSON.parse(localStorage.getItem('observatorio_mon_hidden')||'[]');const star=(window.getSharedFavorites?.()||[]).map(x=>x.chave);const selectedUrl=url=>(window.getCatalogAlternatives?.(url)||[{key:'source:'+url}]).some(opt=>star.includes(opt.key));const displayOld=document.getElementById('mon-include-all').checked;const arr=(monitor.items||[]).filter(x=>{
+ const hidden=JSON.parse(localStorage.getItem('observatorio_mon_hidden')||'[]');const star=(window.getSharedFavorites?.()||[]).map(x=>x.chave);const selectedUrl=item=>(window.getCatalogAlternatives?.(item.url,item.title)||[{key:window.getOpportunityKey?.(item.url,item.title)}]).some(opt=>star.includes(opt.key));const displayOld=document.getElementById('mon-include-all').checked;const arr=(monitor.items||[]).filter(x=>{
   const r=x.relevance||{},themes=r.themes||[];
-  return !hidden.includes(x.url) && (displayOld||selectedUrl(x.url)||r.score>=35) && (score==='all'||(score==='high'&&r.score>=65)||(score==='medium'&&r.score>=35)) && (theme==='all'||themes.includes(theme)) && [x.title,x.org,...themes].join(' ').toLocaleLowerCase('pt-BR').includes(q);
+  return !hidden.includes(x.url) && (displayOld||selectedUrl(x)||r.score>=35||Boolean(window.ObservatorioIdentity?.extractEdition(x.title,x.url))) && (score==='all'||(score==='high'&&r.score>=65)||(score==='medium'&&r.score>=35)) && (theme==='all'||themes.includes(theme)) && [x.title,x.org,...themes].join(' ').toLocaleLowerCase('pt-BR').includes(q);
  });
  document.getElementById('mon-items').innerHTML=arr.length?arr.map(x=>{
   const r=x.relevance||{};const cls=r.score>=65?'':r.score>=35?'mid':'low';
-  const alternatives=window.getCatalogAlternatives?.(x.url)||[];
-  const choices=alternatives.length?alternatives:[{key:'source:'+x.url,title:x.title,type:null}];
+  const alternatives=window.getCatalogAlternatives?.(x.url,x.title)||[];
+  const choices=alternatives.length?alternatives:[{key:window.getOpportunityKey?.(x.url,x.title),title:x.title,type:null}];
   const stars=choices.map(opt=>{
     const marked=star.includes(opt.key);
     const subtitle=choices.length>1?(opt.type==='ict'?' ICTs':' Empresas'):'';
@@ -310,7 +310,7 @@ function show(){
  if(!item||!window.alternarFavorito)return;
  b.disabled=true;
  const key=b.dataset.monKey;
- const option=(window.getCatalogAlternatives?.(item.url)||[]).find(x=>x.key===key);
+ const option=(window.getCatalogAlternatives?.(item.url,item.title)||[]).find(x=>x.key===key);
  await window.alternarFavorito(option?.title||item.title,item.url,key);
  b.disabled=false;
 }));
@@ -439,6 +439,7 @@ update();setInterval(update,120000);
 })();
 </script>
 <script src="./supabase-config.js"></script>
+<script src="./opportunity-identity.js"></script>
 <script src="./favorites.js"></script>
 <script src="./notifications.js"></script>
 </body>
