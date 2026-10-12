@@ -23,6 +23,7 @@ jobs:
       - name: Validar JavaScript
         run: |
           node --check favorites.js
+          node --check notifications.js
           node --check supabase-config.js
           node --check scripts/healthcheck.cjs
       - name: Consultar Supabase de forma segura
