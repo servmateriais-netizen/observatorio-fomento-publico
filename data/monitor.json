@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-16T20:42:21+00:00",
-  "last_success_at": "2026-10-16T20:42:21+00:00",
+  "generated_at": "2026-10-17T11:37:50+00:00",
+  "last_success_at": "2026-10-17T11:37:50+00:00",
   "status": "ok",
   "checked_pages": 19,
   "discovered": 10,
@@ -11,7 +11,7 @@
       "title": "PRONINC 2026 — Economia Solidária",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -31,7 +31,7 @@
       "title": "Coopera Mais Brasil — Tecnologias para Agricultura Familiar (ICTs)",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -51,7 +51,7 @@
       "title": "Finep Mais Inovação — Subvenção Econômica Regional",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -71,7 +71,7 @@
       "title": "Finep Mais Inovação — Cadeias Agroindustriais Sustentáveis",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -91,7 +91,7 @@
       "title": "EDITAL 002/2026 – PROGRAMA DE APOIO A PROJETOS DE EXTENSÃO (PAPE) DA FAPEPI",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -111,7 +111,7 @@
       "title": "Finep Mais Inovação — Transformação Mineral",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -130,7 +130,7 @@
       "title": "Finep Mais Inovação — Economia Circular e Cidades Sustentáveis",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -149,7 +149,7 @@
       "title": "Programa Centelha 3 — Piauí",
       "org": "FAPEPI",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -168,7 +168,7 @@
       "title": "Tecnova 3 — Piauí (edição de referência)",
       "org": "FAPEPI",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -187,7 +187,7 @@
       "title": "EDITAL Nº 007/2026 – PROGRAMA DE DESENVOLVIMENTO CIENTÍFICO E TECNOLÓGICO REGIONAL DO PIAUÍ (PDCTR-PI)",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -206,7 +206,7 @@
       "title": "EDITAL Nº 005/2026 – PROGRAMA DE APOIO À PÓS-GRADUAÇÃO STRICTO SENSU (PAPG) – BOLSAS DE MESTRADO E DOUTORADO",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -225,7 +225,7 @@
       "title": "EDITAL Nº 003/2026 – PROGRAMA DE APOIO À FIXAÇÃO DE DOUTORES NO BRASIL ( PROFIX-CB)",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -244,7 +244,7 @@
       "title": "EUREKA — Resiliência a Desastres (fase nacional)",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -262,7 +262,7 @@
       "title": "EDITAL DE CHAMAMENTO PÚBLICO 09/2026",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -280,7 +280,7 @@
       "title": "Edital 008/2026 – PDPG – PARCERIAS ESTRATÉGICAS NOS ESTADOS VI – REDE DE PESQUISA E DESENVOLVIMENTO DA REGIÃO NORDESTE",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -298,7 +298,7 @@
       "title": "EDITAL Nº 006/2026 – PROGRAMA DE BOLSAS DE INICIAÇÃO CIENTÍFICA DA FAPEPI – PBIC",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -316,7 +316,7 @@
       "title": "EDITAL Nº 004/2026 – PRÊMIO FAPEPI DE POPULARIZAÇÃO DA CIÊNCIA “ARQUEÓLOGA NIÈDE GUIDON”",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -334,7 +334,7 @@
       "title": "EDITAL 01/2026 – PROGRAMA DE APOIO À REALIZAÇÃO DE EVENTOS CIENTÍFICOS, DE DIVULGAÇÃO CIENTÍFICA E TECNOLÓGICA (PAP)",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -352,7 +352,7 @@
       "title": "Chamada Pública nº 07/2025 Para Fomento de Núcleos de Inteligência Territorial (NIT)",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-16T20:42:21+00:00",
+      "last_seen": "2026-10-17T11:37:50+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
