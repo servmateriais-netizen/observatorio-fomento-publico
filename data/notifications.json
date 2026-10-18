@@ -1,8 +1,69 @@
 {
-  "generated_at": "2026-10-17T20:38:06+00:00",
-  "status": "ok",
-  "total": 0,
-  "events": [],
+  "generated_at": "2026-10-18T11:37:28+00:00",
+  "status": "parcial",
+  "total": 3,
+  "events": [
+    {
+      "key": "d66f30a3187cba2ed829",
+      "id": "d66f30a3187cba2ed829",
+      "kind": "Nova chamada identificada",
+      "title": "EDITAL BOLSA DE PRODUTIVIDADE EM PESQUISA – PQ FAPEPI/PROP- UESPI Nº 11/2021",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-bolsa-de-produtividade-em-pesquisa-pq-fapepi-prop-uespi-no-11-2021/",
+      "detected_at": "2026-10-18T11:37:28+00:00",
+      "watched": false,
+      "requires_review": true,
+      "relevance": {
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      }
+    },
+    {
+      "key": "e5a746f568ac114191fc",
+      "id": "e5a746f568ac114191fc",
+      "kind": "Nova chamada identificada",
+      "title": "EDITAL 01/2021 – CHAMADA PÚBLICA FAPEPI/FINEP/FNDCT",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/edital-01-2021-chamada-publica-fapepi-finep-fndct/",
+      "detected_at": "2026-10-18T11:37:28+00:00",
+      "watched": false,
+      "requires_review": true,
+      "relevance": {
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      }
+    },
+    {
+      "key": "5300b92e188b65238911",
+      "id": "5300b92e188b65238911",
+      "kind": "Nova chamada identificada",
+      "title": "CHAMADA FAPEPI/SESAPI/MS-Decit/CNPq No 004/2020",
+      "org": "FAPEPI",
+      "url": "https://www.fapepi.pi.gov.br/edital/chamada-fapepisesapims-decitcnpq-no-0042020/",
+      "detected_at": "2026-10-18T11:37:28+00:00",
+      "watched": false,
+      "requires_review": true,
+      "relevance": {
+        "score": 40,
+        "level": "Média",
+        "themes": [
+          "Startups e inovação",
+          "Pesquisa institucional"
+        ],
+        "route": "Proponente e requisitos a confirmar no edital oficial"
+      }
+    }
+  ],
   "notes": [
     "Avisos informativos, não equivalem a retificações confirmadas.",
     "Notificações exibidas somente no site; não há envio de e-mails."
