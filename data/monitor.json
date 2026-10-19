@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-19T11:43:56+00:00",
-  "last_success_at": "2026-10-19T11:43:56+00:00",
+  "generated_at": "2026-10-19T20:42:26+00:00",
+  "last_success_at": "2026-10-19T20:42:26+00:00",
   "status": "parcial",
   "checked_pages": 17,
   "discovered": 10,
@@ -11,7 +11,7 @@
       "title": "PRONINC 2026 — Economia Solidária",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -31,7 +31,7 @@
       "title": "Coopera Mais Brasil — Tecnologias para Agricultura Familiar (ICTs)",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -51,7 +51,7 @@
       "title": "Finep Mais Inovação — Subvenção Econômica Regional",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -71,7 +71,7 @@
       "title": "Finep Mais Inovação — Cadeias Agroindustriais Sustentáveis",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -91,7 +91,7 @@
       "title": "Finep Mais Inovação — Transformação Mineral",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -110,7 +110,7 @@
       "title": "Finep Mais Inovação — Economia Circular e Cidades Sustentáveis",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -129,7 +129,7 @@
       "title": "EDITAL BOLSA DE PRODUTIVIDADE EM PESQUISA – PQ FAPEPI/PROP- UESPI Nº 11/2021",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -148,7 +148,7 @@
       "title": "EDITAL 01/2021 – CHAMADA PÚBLICA FAPEPI/FINEP/FNDCT",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -167,7 +167,7 @@
       "title": "CHAMADA FAPEPI/SESAPI/MS-Decit/CNPq No 004/2020",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -186,7 +186,7 @@
       "title": "EUREKA — Resiliência a Desastres (fase nacional)",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -204,7 +204,7 @@
       "title": "PROGRAMA DE BOLSAS DE PESQUISA – EDITAL FAPEPI/SEPLAN Nº 005/2020",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -222,7 +222,7 @@
       "title": "CHAMADA PÚBLICA N.o 004/2010 – FAPEPI",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -240,7 +240,7 @@
       "title": "CHAMADA PÚBLICA No 004/2008 – FAPEPI",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -258,7 +258,7 @@
       "title": "CHAMADA PÚBLICA N.o 003/2010 – FAPEPI",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -276,7 +276,7 @@
       "title": "CHAMADA PÚBLICA N.o 003/2008 – FAPEPI",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -294,7 +294,7 @@
       "title": "CHAMADA PÚBLICA N.o 002/2011 – FAPEPI",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
@@ -312,7 +312,7 @@
       "title": "CHAMADA PÚBLICA No 001/2011 – FAPEPI",
       "org": "FAPEPI",
       "source": "descoberto",
-      "last_seen": "2026-10-19T11:43:56+00:00",
+      "last_seen": "2026-10-19T20:42:26+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
