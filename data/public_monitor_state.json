@@ -1,5 +1,5 @@
 {
-  "last_scan": "2026-10-28T11:52:04+00:00",
+  "last_scan": "2026-10-28T20:52:03+00:00",
   "pages": {
     "https://www.finep.gov.br/en/e/chamada-publica/222684/1057230": {
       "fingerprint": "850292bb6300a52e2202e1f339d3abcd695966e613e5cb809008aa54b7ebb315",
@@ -7,7 +7,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://faleconosco.finep.gov.br/web/guest/w/finep-disponibiliza-r-220-milh%C3%B5es-para-inova%C3%A7%C3%A3o-em-cooperativas-de-agricultura-familiar": {
       "fingerprint": "6eed8ae42e74ee7cf9b9262cd6ff09dcd0ffc7a99fc14110dd9c488728d7de6e",
@@ -15,7 +15,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.finep.gov.br/chamadas-publicas/chamadapublica/771": {
       "fingerprint": "808e1984204af55d5f45c867f5a308339a83e6249732aef7f829a2187dce1ba2",
@@ -23,7 +23,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://faleconosco.finep.gov.br/web/guest/w/finep-abre-chamada-de-r-7-milh%C3%B5es-da-rede-eureka-para-financiar-projetos-de-resili%C3%AAncia-a-desastres": {
       "fingerprint": "915d4ef0f6d7e1301f9664afc492c7abebbe53c095cdbf898d75e9afbe2e03f2",
@@ -31,7 +31,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.finep.gov.br/chamadas-publicas/chamadapublica/776": {
       "fingerprint": "fd28989b579e4f0466367e34989cbc456174b07484fb271367121bc73c0e5487",
@@ -39,7 +39,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.finep.gov.br/chamadas-publicas/chamadapublica/777": {
       "fingerprint": "dc78f2f42ab2de3c2578588c12e56c03fbec43b3a632d85cf62b82b839183c4d",
@@ -47,7 +47,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.finep.gov.br/chamadas-publicas/chamadapublica/774": {
       "fingerprint": "a03c95e1db89397c1a98c5e02bcb1513faa311e6486fbe08fd3e9cb7fe3e92f2",
@@ -55,10 +55,10 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-006-2025-programa-centelha-3-piaui/": {
-      "fingerprint": "b0c820f736761a187a6023700a26c40f88835faa652ce4cde74797dc4046d67e",
+      "fingerprint": "1216d89226191b5ec8da3cef88cafbf6ab8b15589ee44b901e9afe5b11ff12f8",
       "title": "EDITAL 006/2025 – PROGRAMA CENTELHA 3 PIAUÍ – Fapepi",
       "edition": 3,
       "program": "centelha",
@@ -68,7 +68,7 @@
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2025/10/CRONOGRAMA-DE-PRORROGACAO-.pdf": "CRONOGRAMA DE PRORROGAÇÃO",
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2026/02/RETIFICACAO-RESULTADO-PRELIMINAR-FASE-1.pdf": "RETIFICAÇÃO – RESULTADO PRELIMINAR – FASE 1"
       },
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/selecao-publica-fapepi-finep-mcti-edital-n-01-2024-programa-tecnova3-piaui/": {
       "fingerprint": "6272df3f3d1cdc788ba4e3fecb33138d3a782d47c330ae1e5a70766a015f8fd3",
@@ -78,7 +78,7 @@
       "docs": {
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2025/05/PRORROGACAO-DO-CRONOGRAMA-.pdf": "PRORROGAÇÃO DO CRONOGRAMA"
       },
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-de-chamamento-publico-09-2026-2/": {
       "fingerprint": "97b1b0461f2ebeb0f8ab1e88c6a9c0c0e53aa37ef8155813bce5a8b429aa58e7",
@@ -86,7 +86,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-fapepi-008-2026-pdpg-parcerias-estrategicas-nos-estados-vi-rede-de-pesquisa-e-desenvolvimento-da-regiao-nordeste/": {
       "fingerprint": "0bf705aa2f3759feffa065e1c0101c9e092e867b68bbdad5f27dc45006acac6f",
@@ -94,7 +94,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-no-007-2026-programa-de-desenvolvimento-cientifico-e-tecnologico-regional-do-piaui-pdctr-pi/": {
       "fingerprint": "d41ea804547e642a684552dc986f1a68891033c8da89c14162467f4e1505b963",
@@ -102,7 +102,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-no-006-2026-programa-de-bolsas-de-iniciacao-cientifica-da-fapepi-pbic/": {
       "fingerprint": "003c4b9c29435860edf79bb5753cb401050ac5254f74ae310593394e869b1897",
@@ -110,7 +110,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-no-005-2026-programa-de-apoio-a-pos-graduacao-stricto-sensu-papg-bolsas-de-mestrado-e-doutorado/": {
       "fingerprint": "5aa4aad387b14f8f76b529b3e9c7744cdad467dae93d99f4d19caee412b8f818",
@@ -118,7 +118,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-no-004-2026-premio-fapepi-de-popularizacao-da-ciencia-arqueologa-niede-guidon/": {
       "fingerprint": "8ccb069b6101407da89439365f662ae1d8ce5d87a5788877f02a928b48e0e9b4",
@@ -126,7 +126,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-no-003-2026-programa-de-apoio-a-fixacao-de-doutores-no-brasil-profix-cb/": {
       "fingerprint": "9ee6443a3cee8c1e061465995c2351a6d4c151a0dc16fb34ffa11025886278bf",
@@ -134,7 +134,7 @@
       "edition": null,
       "program": null,
       "docs": {},
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-002-2026-programa-de-apoio-a-projetos-de-extensao-pape-da-fapepi/": {
       "fingerprint": "aab3d59fb4263bd633ea2b8c89131af68787bf3549d2aa6676ff75b002417bc1",
@@ -145,7 +145,7 @@
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2026/08/RETIFICACAO-DO-RESULTADO-PRELIMINAR-DA-ETAPA-I-HABILITACAO.pdf": "RETIFICAÇÃO DO RESULTADO PRELIMINAR DA ETAPA I – HABILITAÇÃO",
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2026/10/RETIFICACAO-DO-RESULTADO-DOS-RECURSOS-DA-ETAPA-II-–-AVALIACAO-DE-MERITO.pdf": "RETIFICAÇÃO DO RESULTADO DOS RECURSOS DA ETAPA II – AVALIAÇÃO DE MÉRITO"
       },
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-01-2026-programa-de-apoio-a-realizacao-de-eventos-cientificos-de-divulgacao-cientifica-e-tecnologica-pap/": {
       "fingerprint": "41aa14a57b8d4fdd953a35f7fc74717a1be163b81ba50238b41ebd0d6abf3518",
@@ -155,7 +155,7 @@
       "docs": {
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2026/02/RETIFICACAO-RESULTADO-FINAL-DA-CHAMADA-I-.pdf": "RETIFICAÇÃO – RESULTADO FINAL DA CHAMADA I"
       },
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/chamada-publica-no-07-2025-para-fomento-de-nucleos-de-inteligencia-territorial-nit/": {
       "fingerprint": "7b247ae6beaba6aedc0dd5cbd343605ed58ae7884dfe9c19dfdf98bc2aab4aa9",
@@ -166,7 +166,7 @@
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2025/12/EDITAL-072025-RETIFICADO.pdf": "EDITAL-07/2025- RETIFICADO",
         "https://www.fapepi.pi.gov.br/wp-content/uploads/2026/03/RESULTADO_PRELIMINAR_RETIFICADO_DA_HABILITACAO__NIT___Edital_007___2025.pdf": "RETIFICAÇÃO DO RESULTADO PRELIMINAR DA ETAPA DE HABILITAÇÃO"
       },
-      "last_seen": "2026-10-28T11:52:04+00:00"
+      "last_seen": "2026-10-28T20:52:03+00:00"
     },
     "https://www.fapepi.pi.gov.br/edital/edital-bolsa-de-produtividade-em-pesquisa-pq-fapepi-prop-uespi-no-11-2021/": {
       "fingerprint": "6e6a4419f49c569e48762b8386d8b91e83fdde2b8789b7d81f4e0d7597b54cc1",
