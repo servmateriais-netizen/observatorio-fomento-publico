@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-08T20:46:09+00:00",
-  "last_success_at": "2026-11-08T20:46:09+00:00",
+  "generated_at": "2026-11-09T12:04:08+00:00",
+  "last_success_at": "2026-11-09T12:04:08+00:00",
   "status": "parcial",
   "checked_pages": 7,
   "discovered": 0,
@@ -11,7 +11,7 @@
       "title": "PRONINC 2026 — Economia Solidária",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-11-08T20:46:09+00:00",
+      "last_seen": "2026-11-09T12:04:08+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -31,7 +31,7 @@
       "title": "Coopera Mais Brasil — Tecnologias para Agricultura Familiar (ICTs)",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-11-08T20:46:09+00:00",
+      "last_seen": "2026-11-09T12:04:08+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -51,7 +51,7 @@
       "title": "Finep Mais Inovação — Subvenção Econômica Regional",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-11-08T20:46:09+00:00",
+      "last_seen": "2026-11-09T12:04:08+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -71,7 +71,7 @@
       "title": "Finep Mais Inovação — Cadeias Agroindustriais Sustentáveis",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-11-08T20:46:09+00:00",
+      "last_seen": "2026-11-09T12:04:08+00:00",
       "relevance": {
         "score": 60,
         "level": "Média",
@@ -91,7 +91,7 @@
       "title": "Finep Mais Inovação — Transformação Mineral",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-11-08T20:46:09+00:00",
+      "last_seen": "2026-11-09T12:04:08+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -110,7 +110,7 @@
       "title": "Finep Mais Inovação — Economia Circular e Cidades Sustentáveis",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-11-08T20:46:09+00:00",
+      "last_seen": "2026-11-09T12:04:08+00:00",
       "relevance": {
         "score": 40,
         "level": "Média",
@@ -129,7 +129,7 @@
       "title": "EUREKA — Resiliência a Desastres (fase nacional)",
       "org": "Finep",
       "source": "catálogo",
-      "last_seen": "2026-11-08T20:46:09+00:00",
+      "last_seen": "2026-11-09T12:04:08+00:00",
       "relevance": {
         "score": 20,
         "level": "Baixa",
